@@ -33,10 +33,11 @@ namespace engine {
 		createTexturePipeline();
 	}
 
-	void RenderingPipeline2D::setPipeline(size_t _index)
+	void RenderingPipeline2D::setPipeline(RenderState _state)
 	{
-		EngineCommand()->get()->SetGraphicsRootSignature(rootSignatureList[_index].get());
-		EngineCommand()->get()->SetPipelineState(pipelineStateList[_index].get());
+		size_t index = static_cast<size_t>(_state);
+		EngineCommand()->get()->SetGraphicsRootSignature(rootSignatureList[index].get());
+		EngineCommand()->get()->SetPipelineState(pipelineStateList[index].get());
 	}
 
 	void RenderingPipeline2D::createColorPipeline()

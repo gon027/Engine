@@ -39,8 +39,6 @@ namespace engine {
 		, indexBuffer()
 		, worldMatrixBuffer()
 		, worldMatrixBufferUploader()
-		, matrixBuffer()
-		, matrixBufferUploader()
 	{
 	}
 
@@ -54,8 +52,6 @@ namespace engine {
 		, indexBuffer()
 		, worldMatrixBuffer()
 		, worldMatrixBufferUploader()
-		, matrixBuffer()
-		, matrixBufferUploader()
 	{
 	}
 
@@ -94,10 +90,6 @@ namespace engine {
 
 		worldMatrixBuffer.world = transform.getWorldMatrix();
 		worldMatrixBufferUploader.init(&worldMatrixBuffer, sizeof(WorldMatrixBuffer));
-
-		matrixBuffer.view = EngineCamera2D()->getView();
-		matrixBuffer.projection = EngineCamera2D()->getProjection();
-		matrixBufferUploader.init(&matrixBuffer, sizeof(matrixBuffer));
 
 		return true;
 	}
@@ -150,11 +142,9 @@ namespace engine {
 
 		auto commandList = EngineCommand()->get();
 
-		EnginePipeline2D()->setPipeline(1);
+		EnginePipeline2D()->setPipeline(RenderState::Texture);
 
-		matrixBuffer.view = EngineCamera2D()->getView();
-		matrixBuffer.projection = EngineCamera2D()->getProjection();
-		matrixBufferUploader.setConstantBuffer(0, &matrixBuffer);
+		EngineCamera2D()->update();
 
 		worldMatrixBuffer.world = transform.getWorldMatrix();
 		worldMatrixBufferUploader.setConstantBuffer(1, &worldMatrixBuffer);

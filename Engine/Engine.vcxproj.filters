@@ -195,9 +195,6 @@
     <ClCompile Include="engine\lib\Dx12\src\Buffer\VertexBuffer.cpp">
       <Filter>engine\Graphics\VertexBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="Test\Test_Mesh.cpp">
-      <Filter>Test</Filter>
-    </ClCompile>
     <ClCompile Include="Test\Test_Camera.cpp">
       <Filter>Test</Filter>
     </ClCompile>
@@ -242,9 +239,6 @@
     </ClCompile>
     <ClCompile Include="engine\lib\Dx12\src\PipelineState\RenderingPipeline2D.cpp">
       <Filter>engine\Graphics\RenderingPipeline</Filter>
-    </ClCompile>
-    <ClCompile Include="Test\Test_App.cpp">
-      <Filter>Test</Filter>
     </ClCompile>
     <ClCompile Include="Test\Test_Font.cpp">
       <Filter>Test</Filter>

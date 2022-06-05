@@ -3,11 +3,17 @@
 #include <vector>
 #include <include/RootSignature/RootSignature.hpp>
 #include <include/PipelineState/PipelineState.hpp>
+#include <include/Type/Type.hpp>
 
 namespace engine {
 
 	class RootSignature;
 	class PipelineState;
+
+	enum class RenderState : u64 {
+		Default = 0,
+		Texture = 1,
+	};
 
 	class RenderingPipeline2D {
 	public:
@@ -16,7 +22,7 @@ namespace engine {
 
 		void init();
 
-		void setPipeline(size_t _index);
+		void setPipeline(RenderState _state);
 
 	private:
 		void createColorPipeline();

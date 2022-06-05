@@ -32,3 +32,6 @@
 #include <include/Shader/PixelShader.hpp>
 
 #include "../../lib/Math/MathLib.hpp"
+
+// デバック
+#include "Debug/Debug.hpp"

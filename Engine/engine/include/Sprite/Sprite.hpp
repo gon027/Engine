@@ -66,10 +66,6 @@ namespace engine {
 		VertexBuffer vertexBuffer;
 		IndexBuffer indexBuffer;
 
-		// Œã‚ÅˆÚ“®‚³‚¹‚é
-		MatrixBuffer matrixBuffer;
-		ConstantBuffer matrixBufferUploader;
-
 		WorldMatrixBuffer worldMatrixBuffer;
 		ConstantBuffer    worldMatrixBufferUploader;
 	};

@@ -190,7 +190,6 @@
     <ClCompile Include="engine\lib\Dx12\src\Device\Device.cpp" />
     <ClCompile Include="engine\src\Sprite\Sprite.cpp" />
     <ClCompile Include="engine\src\Texture\Texture.cpp" />
-    <ClCompile Include="Test\Test_App.cpp" />
     <ClCompile Include="Test\Test_Buffer.cpp" />
     <ClCompile Include="Test\Test_Camera3D.cpp" />
     <ClCompile Include="Test\Test_Camera.cpp" />
@@ -202,7 +201,6 @@
     <ClCompile Include="Test\Test_Input.cpp" />
     <ClCompile Include="Test\Test_Main.cpp" />
     <ClCompile Include="engine\src\Window\Window.cpp" />
-    <ClCompile Include="Test\Test_Mesh.cpp" />
     <ClCompile Include="Test\Test_Mouse.cpp" />
     <ClCompile Include="Test\Test_RenderTarget.cpp" />
     <ClCompile Include="Test\Test_Shape.cpp" />

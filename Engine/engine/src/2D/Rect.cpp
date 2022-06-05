@@ -55,7 +55,7 @@ namespace engine {
 	}
 
 	void Rect::draw() {
-		EnginePipeline2D()->setPipeline(0);
+		EnginePipeline2D()->setPipeline(RenderState::Default);
 
 		EngineCamera2D()->update();
 

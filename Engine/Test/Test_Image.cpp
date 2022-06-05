@@ -1,6 +1,5 @@
+
 #include "../engine/include/Engine.hpp"
-#include "../engine/include/Debug/Debug.hpp"
-#include <include/Buffer/Buffer.hpp>
 
 void gnMain() {
 	using namespace engine;
