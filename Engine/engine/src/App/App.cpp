@@ -1,6 +1,9 @@
 #include "../../include/App/App.hpp"
-#include "../../include/EngineCore/EngineCore.hpp"
 #include "../../include/Window/Window.hpp"
+#include "../../include/Color/Color.hpp"
+#include <include/EngineCore/EngineCore.hpp>
+#include <include/RenderTarget/RenderTarget.hpp>
+#include <string_view>
 
 namespace engine {
 
@@ -34,4 +37,20 @@ namespace engine {
 			Engine()->end();
 		}
 	}
+
+	namespace Scene {
+
+		void Scene::setBackGroundColor(const ColorF& _color)
+		{
+			EngineRenderTarget()->setBackBroundColor(_color);
+		}
+
+		void setWindowTitie(std::string_view _title)
+		{
+			EngineWindow()->setTitle(_title.data());
+		}
+
+	}
 }
+
+

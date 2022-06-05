@@ -1,45 +1,42 @@
 #pragma once
 
-#include <vector>
-#include "../Library/Librarys.hpp"
-#include "../Graphics/VertexBuffer.hpp"
-#include "../Graphics/IndexBuffer.hpp"
-#include "../Vertex/Vertex2D.hpp"
-#include "../Type/Type.hpp"
+#include <include/Type/Type.hpp>
+#include <include/Buffer/VertexBuffer.hpp>
+#include <include/Buffer/IndexBuffer.hpp>
+#include "../IndexData/IndexData.hpp"
 
 namespace engine {
 
 	class Mesh {
 	public:
-		Mesh();
+		Mesh() : vertexBuffer(), indexBuffer(), indexSize() {};
 		~Mesh() = default;
 
-		void setVertex(const std::vector<Vertex2D>& _vertex);
-		void setVertex(std::initializer_list<Vertex2D> _vertex);
+		bool init(const void* _data, UINT _strideInBytes, size_t _dataSize, IndexData& _indexData) {
+			if (!vertexBuffer.init(_data, _strideInBytes, _dataSize)) {
+				return false;
+			}
 
-		void setIndex(const std::vector<u32>& _index);
-		void setIndex(std::initializer_list<u32> _index);
+			if (!indexBuffer.init(_indexData.getData(), _indexData.getStride(), _indexData.getSize())) {
+				return false;
+			}
+
+			indexSize = static_cast<u32>(_indexData.getSize());
+
+			return true;
+		}
+
+		void setVertexBuffer(const void* _data, UINT _strideInBytes, size_t _dataSize);
+
+		void setIndexBuffer(IndexData& _indexData);
 
 		void draw();
-
-		inline u64 getVertexCount() const {
-			return vertexCount;
-		}
-
-		inline u64 getIndexCount() const {
-			return indexCount;
-		}
-
-	public:
-		std::vector<Vertex2D> vertex;
-		std::vector<u32> index;
-
-		u64 vertexCount;
-		u64 indexCount;
 
 	private:
 		VertexBuffer vertexBuffer;
 		IndexBuffer indexBuffer;
+
+		u32 indexSize;
 	};
 
 }

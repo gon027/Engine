@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Type/Type.hpp"
+#include <include/Type/Type.hpp>
 
 namespace engine {
 	

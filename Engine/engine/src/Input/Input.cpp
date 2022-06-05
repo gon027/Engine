@@ -1,5 +1,5 @@
 #include "../../include/Input/Input.hpp"
-#include "../../include/EngineCore/EngineCore.hpp"
+#include <include/EngineCore/EngineCore.hpp>
 #include "../../include/Input/Mouse.hpp"
 #include "../../include/Input/KeyBoard.hpp"
 

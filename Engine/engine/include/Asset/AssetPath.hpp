@@ -5,7 +5,7 @@
 namespace engine {
 
 	struct ShaderPath {
-		static inline const std::wstring Path = L"engine/shader/";
+		static inline const std::wstring Path = L"engine/lib/shader/";
 	};
 
 	template <class A>

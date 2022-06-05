@@ -1,10 +1,17 @@
 #pragma once
 
-#include "../Type/Type.hpp"
+// #include "../Type/Type.hpp"
+#include <include/Type/Type.hpp>
 
 namespace engine {
 
 	struct ColorF {
+		static ColorF Red;
+		static ColorF Green;
+		static ColorF Blue;
+		static ColorF White;
+		static ColorF Black;
+
 		ColorF(float _r, float _g, float _b, float _a);
 		ColorF(const ColorF& _c);
 		~ColorF() = default;

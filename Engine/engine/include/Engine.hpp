@@ -6,10 +6,10 @@
 
 #include "Asset/AssetPath.hpp"
 
-#include "Type/Type.hpp"
+#include <include/Type/Type.hpp>
 
 // Todo: íœ‚·‚é
-#include "Graphics/ConstantBuffer.hpp"
+#include "include/Buffer/ConstantBuffer.hpp"
 
 // ƒJƒƒ‰
 #include "Camera/Camera2D.hpp"
@@ -24,9 +24,11 @@
 
 // ”ŠwŠÖŒW
 #include "Color/Color.hpp"
-#include "Vertex/Vertex2D.hpp"
+#include <include/Vertex/Vertex2D.hpp>
 #include "Transform/Transform.hpp"
 
-#include "../../../../MathLib//MathLib/Math/include/Math.hpp"
-#pragma comment(lib, "../../MathLib/x64/Debug/MathLib.lib")
-using namespace gnLib;
+#include <include/PipelineState/InputLayout.hpp>
+#include <include/Shader/VertexShader.hpp>
+#include <include/Shader/PixelShader.hpp>
+
+#include "../../lib/Math/MathLib.hpp"

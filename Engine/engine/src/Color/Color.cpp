@@ -2,6 +2,12 @@
 
 namespace engine {
 
+	ColorF ColorF::Red   = { 1.0f, 0.0f, 0.0f, 0.0f };
+	ColorF ColorF::Green = { 0.0f, 1.0f, 0.0f, 1.0f };
+	ColorF ColorF::Blue  = { 0.0f, 0.0f, 1.0f, 1.0f };
+	ColorF ColorF::White = { 1.0f, 1.0f, 1.0f, 1.0f };
+	ColorF ColorF::Black = { 0.0f, 0.0f, 0.0f, 0.0f };
+
 	ColorF::ColorF(float _r, float _g, float _b, float _a)
 		: r(_r)
 		, g(_g)

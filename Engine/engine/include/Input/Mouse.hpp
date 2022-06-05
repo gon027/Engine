@@ -7,7 +7,7 @@
 #pragma comment(lib, "dxguid.lib")
 
 #include "MouseType.hpp"
-#include "../Type/Type.hpp"
+#include <include/Type/Type.hpp>
 
 namespace engine {
 

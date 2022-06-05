@@ -1,13 +1,13 @@
 #include "../../include/Texture/Texture.hpp"
-#include "../../Lib/DirectXTex/DirectXTex.h"
-#include "../../include/Graphics/Device.hpp"
-#include "../../include/EngineCore/EngineCore.hpp"
+#include "../../lib/Dx12/Lib/DirectXTex/DirectXTex.h"
+#include <include/Device/Device.hpp>
+#include <include/EngineCore/EngineCore.hpp>
 #include "../../include/Image/Image.hpp"
 
 #ifdef _DEBUG
-#pragma comment(lib, "engine/Lib/DirectXTex/x64/Debug/DirectXTex.lib")
+#pragma comment(lib, "engine/Lib/Dx12/Lib/DirectXTex/x64/Debug/DirectXTex.lib")
 #elif
-#pragma comment(lib, "engine/Lib/DirectXTex/x64/Release/DirectXTex.lib")
+#pragma comment(lib, "engine/Lib/Dx12/Lib/DirectXTex/x64/Release/DirectXTex.lib")
 #endif
 
 namespace engine {
@@ -213,11 +213,11 @@ namespace engine {
 		desc.SampleDesc.Count = 1;
 
 		D3D12_HEAP_PROPERTIES prop{};
-		prop.Type = D3D12_HEAP_TYPE_CUSTOM;
+		prop.Type                 = D3D12_HEAP_TYPE_CUSTOM;
 		prop.MemoryPoolPreference = D3D12_MEMORY_POOL_L0;
-		prop.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_WRITE_BACK;
-		prop.CreationNodeMask = 0;
-		prop.VisibleNodeMask = 0;
+		prop.CPUPageProperty      = D3D12_CPU_PAGE_PROPERTY_WRITE_BACK;
+		prop.CreationNodeMask     = 0;
+		prop.VisibleNodeMask      = 0;
 
 		HRESULT hr = EngineDevice()->get()->CreateCommittedResource(
 			&prop,

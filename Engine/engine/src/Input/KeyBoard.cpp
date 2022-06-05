@@ -1,5 +1,5 @@
 #include "../../include/Input/KeyBoard.hpp"
-#include "../../include/EngineCore/EngineCore.hpp"
+#include <include/EngineCore/EngineCore.hpp>
 #include "../../include/Window/Window.hpp"
 
 namespace engine {

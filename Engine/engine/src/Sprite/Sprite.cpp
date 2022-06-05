@@ -1,9 +1,9 @@
 #include "../../include/Sprite/Sprite.hpp"
-#include "../../include/EngineCore/EngineCore.hpp"
-#include "../../include/Graphics/CommandList.hpp"
 #include "../../include/Texture/Texture.hpp"
-#include "../../include/Graphics/RenderingPipeline2D.hpp"
 #include "../../include/Camera/Camera2D.hpp"
+#include <include/EngineCore/EngineCore.hpp>
+#include <include/CommandList/CommandList.hpp>
+#include <include/PipelineState/RenderingPipeline2D.hpp>
 
 namespace engine {
 
@@ -150,7 +150,7 @@ namespace engine {
 
 		auto commandList = EngineCommand()->get();
 
-		EnginePipeline2D()->setPipeline(0);
+		EnginePipeline2D()->setPipeline(1);
 
 		matrixBuffer.view = EngineCamera2D()->getView();
 		matrixBuffer.projection = EngineCamera2D()->getProjection();
@@ -168,8 +168,6 @@ namespace engine {
 		commandList->SetDescriptorHeaps(_countof(heaps), heaps);
 
 		auto handle = texture->getGPUHandle();
-		auto s = "Handle = " + std::to_string(handle.ptr) + "\n";
-		OutputDebugString(s.c_str());
 		commandList->SetGraphicsRootDescriptorTable(2, handle);
 
 		commandList->DrawIndexedInstanced((u32)indexes.size(), 1, 0, 0, 0);

@@ -138,7 +138,7 @@
     <ClCompile Include="engine\include\EngineMain\EngineMain.cpp">
       <Filter>engine\Main</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\EngineCore\EngineCore.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\EngineCore\EngineCore.cpp">
       <Filter>engine\EngineCore</Filter>
     </ClCompile>
     <ClCompile Include="Test\Test_Device.cpp">
@@ -147,52 +147,52 @@
     <ClCompile Include="Test\Test_Main.cpp">
       <Filter>Test</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\Device.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Device\Device.cpp">
       <Filter>engine\Graphics\Device</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\Adapter.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Device\Adapter.cpp">
       <Filter>engine\Graphics\Adapter</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\Factory.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Device\Factory.cpp">
       <Filter>engine\Graphics\Factory</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\CommandAllocator.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\CommandList\CommandAllocator.cpp">
       <Filter>engine\Graphics\CommandAllocator</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\CommandList.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\CommandList\CommandList.cpp">
       <Filter>engine\Graphics\CommandList</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\CommandQueue.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\CommandList\CommandQueue.cpp">
       <Filter>engine\Graphics\CommandQueue</Filter>
     </ClCompile>
     <ClCompile Include="Test\Test_RenderTarget.cpp">
       <Filter>Test</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\DepthStencil.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\DepthStencil\DepthStencil.cpp">
       <Filter>engine\Graphics\RenderTarget</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\RenderTarget.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\RenderTarget\RenderTarget.cpp">
       <Filter>engine\Graphics\RenderTarget</Filter>
     </ClCompile>
     <ClCompile Include="Test\Test_ConstantBuffer.cpp">
       <Filter>Test</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\ConstantBuffer.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Buffer\ConstantBuffer.cpp">
       <Filter>engine\Graphics\ConstantBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\IndexBuffer.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Buffer\IndexBuffer.cpp">
       <Filter>engine\Graphics\IndexBuffer</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\InputLayout.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\PipelineState\InputLayout.cpp">
       <Filter>engine\Graphics\RootSignature</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\PipelineState.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\PipelineState\PipelineState.cpp">
       <Filter>engine\Graphics\PipelineState</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\RootSignature.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\RootSignature\RootSignature.cpp">
       <Filter>engine\Graphics\RootSignature</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\VertexBuffer.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Buffer\VertexBuffer.cpp">
       <Filter>engine\Graphics\VertexBuffer</Filter>
     </ClCompile>
     <ClCompile Include="Test\Test_Mesh.cpp">
@@ -225,10 +225,10 @@
     <ClCompile Include="engine\src\Input\KeyBoard.cpp">
       <Filter>engine\Input</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\PixelShader.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Shader\PixelShader.cpp">
       <Filter>engine\Graphics\Shader</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\VertexShader.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Shader\VertexShader.cpp">
       <Filter>engine\Graphics\Shader</Filter>
     </ClCompile>
     <ClCompile Include="engine\src\Color\Color.cpp">
@@ -240,10 +240,7 @@
     <ClCompile Include="engine\src\Sprite\Sprite.cpp">
       <Filter>engine\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Mesh\Mesh.cpp">
-      <Filter>engine\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\src\Graphics\RenderingPipeline2D.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\PipelineState\RenderingPipeline2D.cpp">
       <Filter>engine\Graphics\RenderingPipeline</Filter>
     </ClCompile>
     <ClCompile Include="Test\Test_App.cpp">
@@ -261,10 +258,34 @@
     <ClCompile Include="engine\src\Font\Font.cpp">
       <Filter>engine\Font</Filter>
     </ClCompile>
-    <ClCompile Include="Test\Test_All.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\DescriptorHeap\DescriptorHeap.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="engine\src\Graphics\DescriptorHeap.cpp">
+    <ClCompile Include="engine\lib\Dx12\src\Buffer\Buffer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Camera\Camera2D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Image\Image.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Font\FontBitMap.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Debug\Debug.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Time\Time.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\2D\Rect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Shape.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Mesh\Mesh.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -275,71 +296,68 @@
     <ClInclude Include="engine\include\Window\Window.hpp">
       <Filter>engine\Window</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Library\Librarys.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Library\Librarys.hpp">
       <Filter>engine\Library</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Library\d3dx12.h">
+    <ClInclude Include="engine\lib\Dx12\include\Library\d3dx12.h">
       <Filter>engine\Library</Filter>
     </ClInclude>
     <ClInclude Include="engine\include\EngineMain\EngineMain.hpp">
       <Filter>engine\Main</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\EngineCore\EngineCore.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\EngineCore\EngineCore.hpp">
       <Filter>engine\EngineCore</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Common\Common.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Common\Common.hpp">
       <Filter>engine\Common</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\Device.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Device\Device.hpp">
       <Filter>engine\Graphics\Device</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\Adapter.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Device\Adapter.hpp">
       <Filter>engine\Graphics\Adapter</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\Factory.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Device\Factory.hpp">
       <Filter>engine\Graphics\Factory</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\CommandList.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\CommandList\CommandList.hpp">
       <Filter>engine\Graphics\CommandList</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\CommandQueue.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\CommandList\CommandQueue.hpp">
       <Filter>engine\Graphics\CommandQueue</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\CommandAllocator.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\CommandList\CommandAllocator.hpp">
       <Filter>engine\Graphics\CommandAllocator</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\DepthStencil.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\DepthStencil\DepthStencil.hpp">
       <Filter>engine\Graphics\RenderTarget</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\RenderTarget.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\RenderTarget\RenderTarget.hpp">
       <Filter>engine\Graphics\RenderTarget</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\ConstantBuffer.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Buffer\ConstantBuffer.hpp">
       <Filter>engine\Graphics\ConstantBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\IndexBuffer.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Buffer\IndexBuffer.hpp">
       <Filter>engine\Graphics\IndexBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\InputLayout.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\PipelineState\InputLayout.hpp">
       <Filter>engine\Graphics\RootSignature</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\PipelineState.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\PipelineState\PipelineState.hpp">
       <Filter>engine\Graphics\PipelineState</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\RootSignature.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\RootSignature\RootSignature.hpp">
       <Filter>engine\Graphics\RootSignature</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\VertexBuffer.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Buffer\VertexBuffer.hpp">
       <Filter>engine\Graphics\VertexBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Type\Type.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Type\Type.hpp">
       <Filter>engine\Graphics\Type</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Vertex\Vertex2D.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Vertex\Vertex2D.hpp">
       <Filter>engine\Graphics\Vertex</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\include\Mesh\Mesh.hpp">
-      <Filter>engine\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="engine\include\Engine.hpp">
       <Filter>engine</Filter>
@@ -356,10 +374,10 @@
     <ClInclude Include="engine\include\Input\Mouse.hpp">
       <Filter>engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\PixelShader.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Shader\PixelShader.hpp">
       <Filter>engine\Graphics\Shader</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\VertexShader.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\Shader\VertexShader.hpp">
       <Filter>engine\Graphics\Shader</Filter>
     </ClInclude>
     <ClInclude Include="engine\include\Color\Color.hpp">
@@ -377,7 +395,7 @@
     <ClInclude Include="engine\include\Transform\Transform.hpp">
       <Filter>engine\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="engine\src\Graphics\ShaderHelper.hpp">
+    <ClInclude Include="engine\lib\Dx12\src\Shader\ShaderHelper.hpp">
       <Filter>engine\Graphics\Shader</Filter>
     </ClInclude>
     <ClInclude Include="engine\include\Input\MouseType.hpp">
@@ -386,10 +404,10 @@
     <ClInclude Include="engine\include\Asset\AssetPath.hpp">
       <Filter>engine\Graphics\Asset</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\MatrixBuffer\MatrixBuffer.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\MatrixBuffer\MatrixBuffer.hpp">
       <Filter>engine\Graphics\ConstantBuffer</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\RenderingPipeline2D.hpp">
+    <ClInclude Include="engine\lib\Dx12\include\PipelineState\RenderingPipeline2D.hpp">
       <Filter>engine\Graphics\RenderingPipeline</Filter>
     </ClInclude>
     <ClInclude Include="engine\include\App\App.hpp">
@@ -407,7 +425,37 @@
     <ClInclude Include="engine\include\Input\Version.hpp">
       <Filter>engine\Font</Filter>
     </ClInclude>
-    <ClInclude Include="engine\include\Graphics\DescriptorHeap.h">
+    <ClInclude Include="engine\lib\Dx12\include\DescriptorHeap\DescriptorHeap.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\EngineGraphic.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\Dx12\include\Buffer\Buffer.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Camera\Camera3D.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Font\FontBitMap.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Debug\Debug.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Time\Time.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\2D\Rect.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\IndexData\IndexData.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Mesh\Mesh.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\Math\MathLib.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -424,10 +472,10 @@
     <FxCompile Include="Test\shader\TestTexture.hlsl">
       <Filter>Test\shader</Filter>
     </FxCompile>
-    <FxCompile Include="engine\shader\TexturePixel.hlsl">
+    <FxCompile Include="engine\lib\shader\TexturePixel.hlsl">
       <Filter>engine\Shader</Filter>
     </FxCompile>
-    <FxCompile Include="engine\shader\TextureVertex.hlsl">
+    <FxCompile Include="engine\lib\shader\TextureVertex.hlsl">
       <Filter>engine\Shader</Filter>
     </FxCompile>
   </ItemGroup>
@@ -435,7 +483,7 @@
     <None Include="Test\shader\Header.hlsli">
       <Filter>Test\shader</Filter>
     </None>
-    <None Include="engine\shader\Header.hlsli">
+    <None Include="engine\lib\shader\Header.hlsli">
       <Filter>engine\Shader</Filter>
     </None>
   </ItemGroup>

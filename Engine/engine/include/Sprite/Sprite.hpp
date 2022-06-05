@@ -4,13 +4,13 @@
 #include <memory>
 #include "../Transform/Transform.hpp"
 
-#include "../Vertex/Vertex2D.hpp"
-#include "../Type/Type.hpp"
-#include "../Graphics/VertexBuffer.hpp"
-#include "../Graphics/IndexBuffer.hpp"
+#include <include/Vertex/Vertex2D.hpp>
+#include <include/Type/Type.hpp>
+#include <include/Buffer/VertexBuffer.hpp>
+#include <include/Buffer/IndexBuffer.hpp>
 
-#include "../MatrixBuffer/MatrixBuffer.hpp"
-#include "../Graphics/ConstantBuffer.hpp"
+#include <include/MatrixBuffer/MatrixBuffer.hpp>
+#include <include/Buffer/ConstantBuffer.hpp>
 
 namespace engine {
 

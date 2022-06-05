@@ -1,8 +1,11 @@
 #pragma once
 
 #include <string>
+#include <functional>
 
 namespace engine {
+
+	struct ColorF;
 
 	namespace App {
 
@@ -13,6 +16,14 @@ namespace engine {
 		bool update();
 
 		void end();
+
+	}
+
+	namespace Scene {
+
+		void setBackGroundColor(const ColorF& _color);
+
+		void setWindowTitie(std::string_view _title);
 
 	}
 

@@ -2,7 +2,7 @@
 
 #include "Version.hpp"
 #include <dinput.h>
-#include "../Type/Type.hpp"
+#include <include/Type/Type.hpp>
 
 namespace engine {
 

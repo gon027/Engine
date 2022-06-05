@@ -6,7 +6,8 @@
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")
 
-#include "../Type/Type.hpp"
+#include <include/Type/Type.hpp>
+//#include "../Type/Type.hpp"
 #include "../Input/Key.hpp"
 
 namespace engine {

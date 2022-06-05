@@ -2,9 +2,10 @@
 
 #include <string>
 #include <memory>
-#include "../../include/Library/Librarys.hpp"
-#include "../../include/Type/Type.hpp"
-#include "../../include/Graphics/DescriptorHeap.h"
+
+#include <include/Library/Librarys.hpp>
+#include <include/Type/Type.hpp>
+#include <include/DescriptorHeap/DescriptorHeap.h>
 
 namespace engine {
 
