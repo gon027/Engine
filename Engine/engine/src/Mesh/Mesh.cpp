@@ -5,10 +5,12 @@
 namespace engine {
 	void Mesh::setVertexBuffer(const void* _data, UINT _strideInBytes, size_t _dataSize)
 	{
+		vertexBuffer.copyBuffer(_data);
 	}
 
 	void Mesh::setIndexBuffer(IndexData& _indexData)
 	{
+		indexBuffer.copyBuffer(_indexData.getData());
 	}
 
 	void Mesh::draw()

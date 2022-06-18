@@ -1,4 +1,4 @@
-
+/*
 #include "../engine/include/Engine.hpp"
 
 void gnMain() {
@@ -19,3 +19,4 @@ void gnMain() {
 		App::end();
 	}
 }
+*/

@@ -1,18 +1,19 @@
 #pragma once
 
-#include "../../lib/Math/MathLib.hpp"
-
 #include <include/Type/Type.hpp>
 
 #include <include/MatrixBuffer/MatrixBuffer.hpp>
 #include <include/Buffer/ConstantBuffer.hpp>
 
+#include "../../lib/Math/MathLib.hpp"
 #include "../Transform/Transform.hpp"
 #include "../IndexData/IndexData.hpp"
 
 #include "../Mesh/Mesh.hpp"
 
 #include "../Vertex/Vertex2D.hpp"
+
+#include "../Color/Color.hpp"
 
 namespace engine {
 
@@ -28,6 +29,8 @@ namespace engine {
 		void setScale(float _x, float _y);
 
 		void setRotation(float _angle);
+
+		void setColor(const ColorF& _color);
 
 		void draw();
 

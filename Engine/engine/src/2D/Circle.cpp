@@ -66,6 +66,7 @@ namespace engine {
 
 	void Circle::setRotation(float _angle)
 	{
+		transform.rotation = Quaternion::rotationAxis({ 0.0f, 0.0f, 1.0f }, _angle);
 	}
 
 	void Circle::draw()

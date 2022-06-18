@@ -15,10 +15,10 @@ namespace engine {
 		, worldMatrixBufferUploader()
 	{
 		vertexes.resize(4);
-		vertexes[0] = { { -10.5, -10.5, 0.0f },{ 1.0f, 0.0f, 0.0f, 1.0f } };
-		vertexes[1] = { { -10.5,  10.5, 0.0f },{ 0.0f, 1.0f, 0.0f, 1.0f } };
-		vertexes[2] = { {  10.5,  10.5, 0.0f },{ 0.0f, 0.0f, 1.0f, 1.0f } };
-		vertexes[3] = { {  10.5, -10.5, 0.0f },{ 1.0f, 1.0f, 0.0f, 1.0f } };
+		vertexes[0] = { { -0.5, -0.5, 0.0f },{ 1.0f, 0.0f, 0.0f, 1.0f } };
+		vertexes[1] = { { -0.5,  0.5, 0.0f },{ 0.0f, 1.0f, 0.0f, 1.0f } };
+		vertexes[2] = { {  0.5,  0.5, 0.0f },{ 0.0f, 0.0f, 1.0f, 1.0f } };
+		vertexes[3] = { {  0.5, -0.5, 0.0f },{ 1.0f, 1.0f, 0.0f, 1.0f } };
 
 		indexData.setTriangle(0, 1, 2);
 		indexData.setTriangle(0, 2, 3);
@@ -44,14 +44,22 @@ namespace engine {
 	}
 
 	void Rect::setScale(const Vector2& _pos) {
+		transform.scale = { _pos.x, _pos.y, 1.0f };
 
 	}
 	void Rect::setScale(float _x, float _y) {
-
+		transform.scale = { _x, _y, 1.0f };
 	}
 
 	void Rect::setRotation(float _angle) {
 		transform.rotation = Quaternion::rotationAxis({ 0.0f, 0.0f, 1.0f }, _angle);
+	}
+
+	void Rect::setColor(const ColorF& _color)
+	{
+		for (size_t i{ 0 }; i < vertexes.size(); ++i) {
+			vertexes[i].color = { _color.r, _color.g, _color.b, _color.a };
+		}
 	}
 
 	void Rect::draw() {
@@ -61,6 +69,8 @@ namespace engine {
 
 		worldMatrixBuffer.world = transform.getWorldMatrix();
 		worldMatrixBufferUploader.setConstantBuffer(1, &worldMatrixBuffer);
+
+		mesh.setVertexBuffer(vertexes.data(), sizeof(Vertex2DColor), vertexes.size());
 
 		mesh.draw();
 	}
