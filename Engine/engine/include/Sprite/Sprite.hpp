@@ -4,13 +4,14 @@
 #include <memory>
 #include "../Transform/Transform.hpp"
 
-#include <include/Vertex/Vertex2D.hpp>
 #include <include/Type/Type.hpp>
 #include <include/Buffer/VertexBuffer.hpp>
 #include <include/Buffer/IndexBuffer.hpp>
 
 #include <include/MatrixBuffer/MatrixBuffer.hpp>
 #include <include/Buffer/ConstantBuffer.hpp>
+
+#include "../Vertex/Vertex2D.hpp"
 
 namespace engine {
 
@@ -61,7 +62,7 @@ namespace engine {
 		Transform transform;
 		SpriteAlignment spriteAlignment;
 
-		std::vector<Vertex2D_Texture> vertexes;
+		std::vector<Vertex2DTexture> vertexes;
 		std::vector<u32> indexes;
 		VertexBuffer vertexBuffer;
 		IndexBuffer indexBuffer;

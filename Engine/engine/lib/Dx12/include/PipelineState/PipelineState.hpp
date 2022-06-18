@@ -40,6 +40,7 @@ namespace engine {
 		PipelineShader pipelineShader;
 		CullMode cullMode;
 		TopologyType topologyType;
+		FillMode fillMode;
 		bool isDepthEnable = true;
 		bool isStencilEnable = true;
 		bool isBlendEnable = true;

@@ -24,7 +24,6 @@
 
 // ”ŠwŠÖŒW
 #include "Color/Color.hpp"
-#include <include/Vertex/Vertex2D.hpp>
 #include "Transform/Transform.hpp"
 
 #include <include/PipelineState/InputLayout.hpp>

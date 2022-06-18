@@ -40,7 +40,7 @@ namespace engine {
 		
 		desc.RasterizerState = CD3DX12_RASTERIZER_DESC{ D3D12_DEFAULT };
 		desc.RasterizerState.CullMode = static_cast<D3D12_CULL_MODE>(_pipelineParameter.cullMode);
-		// desc.RasterizerState.FillMode = D3D12_FILL_MODE::D3D12_FILL_MODE_WIREFRAME;
+		desc.RasterizerState.FillMode = static_cast<D3D12_FILL_MODE>(_pipelineParameter.fillMode);
 
 		desc.BlendState = CD3DX12_BLEND_DESC{ D3D12_DEFAULT };
 		desc.BlendState.IndependentBlendEnable = FALSE;

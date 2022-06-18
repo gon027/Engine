@@ -80,7 +80,7 @@ namespace engine {
 		indexes[4] = 2;
 		indexes[5] = 3;
 
-		if (!vertexBuffer.init(vertexes.data(), sizeof(Vertex2D_Texture), vertexes.size())) {
+		if (!vertexBuffer.init(vertexes.data(), sizeof(Vertex2DTexture), vertexes.size())) {
 			return false;
 		}
 

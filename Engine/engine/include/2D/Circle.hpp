@@ -16,15 +16,15 @@
 
 namespace engine {
 
-	class Rect {
+	class Circle {
 	public:
-		Rect();
-		~Rect();
+		Circle();
+		~Circle();
 
 		void setPosition(const Vector2& _pos);
 		void setPosition(float _x, float _y);
 
-		void setScale(const Vector2& _pos);
+		void setScale(const Vector2& _scale);
 		void setScale(float _x, float _y);
 
 		void setRotation(float _angle);

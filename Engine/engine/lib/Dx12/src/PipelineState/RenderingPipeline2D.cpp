@@ -80,6 +80,7 @@ namespace engine {
 		parameter.inputLayout = &input;
 		parameter.rootSignature = &rootSignature;
 		parameter.cullMode = CullMode::None;
+		parameter.fillMode = FillMode::Solid;
 		parameter.topologyType = TopologyType::Triangle;
 		auto pipeliseState = PipelineState::create(parameter);
 
@@ -156,6 +157,7 @@ namespace engine {
 		pParameter.inputLayout = &input;
 		pParameter.rootSignature = &rootSignature;
 		pParameter.cullMode = CullMode::None;
+		pParameter.fillMode = FillMode::Solid;
 		pParameter.topologyType = TopologyType::Triangle;
 		auto pipeliseState = PipelineState::create(pParameter);
 

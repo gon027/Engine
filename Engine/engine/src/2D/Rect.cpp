@@ -15,15 +15,15 @@ namespace engine {
 		, worldMatrixBufferUploader()
 	{
 		vertexes.resize(4);
-		vertexes[0] = { { -0.5, -0.5, 0.0f },{ 1.0f, 0.0f, 0.0f, 1.0f } };
-		vertexes[1] = { { -0.5,  0.5, 0.0f },{ 0.0f, 1.0f, 0.0f, 1.0f } };
-		vertexes[2] = { {  0.5,  0.5, 0.0f },{ 0.0f, 0.0f, 1.0f, 1.0f } };
-		vertexes[3] = { {  0.5, -0.5, 0.0f },{ 1.0f, 1.0f, 0.0f, 1.0f } };
+		vertexes[0] = { { -10.5, -10.5, 0.0f },{ 1.0f, 0.0f, 0.0f, 1.0f } };
+		vertexes[1] = { { -10.5,  10.5, 0.0f },{ 0.0f, 1.0f, 0.0f, 1.0f } };
+		vertexes[2] = { {  10.5,  10.5, 0.0f },{ 0.0f, 0.0f, 1.0f, 1.0f } };
+		vertexes[3] = { {  10.5, -10.5, 0.0f },{ 1.0f, 1.0f, 0.0f, 1.0f } };
 
 		indexData.setTriangle(0, 1, 2);
 		indexData.setTriangle(0, 2, 3);
 
-		if (!mesh.init(vertexes.data(), sizeof(Vertex), vertexes.size(), indexData)) {
+		if (!mesh.init(vertexes.data(), sizeof(Vertex2DColor), vertexes.size(), indexData)) {
 			return;
 		}
 
@@ -51,7 +51,7 @@ namespace engine {
 	}
 
 	void Rect::setRotation(float _angle) {
-		transform.rotation.rotationAxis({ 0.0f, 0.0f, 1.0f }, _angle);
+		transform.rotation = Quaternion::rotationAxis({ 0.0f, 0.0f, 1.0f }, _angle);
 	}
 
 	void Rect::draw() {

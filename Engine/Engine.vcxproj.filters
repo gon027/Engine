@@ -282,6 +282,9 @@
     <ClCompile Include="engine\src\Mesh\Mesh.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="engine\src\2D\Circle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\src\Window\WinProc.hpp">
@@ -349,9 +352,6 @@
     </ClInclude>
     <ClInclude Include="engine\lib\Dx12\include\Type\Type.hpp">
       <Filter>engine\Graphics\Type</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\lib\Dx12\include\Vertex\Vertex2D.hpp">
-      <Filter>engine\Graphics\Vertex</Filter>
     </ClInclude>
     <ClInclude Include="engine\include\Engine.hpp">
       <Filter>engine</Filter>
@@ -450,6 +450,15 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="engine\lib\Math\MathLib.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\2D\Circle.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Vertex\Vertex2D.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Vertex\Vec.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

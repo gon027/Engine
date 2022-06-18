@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\src\2D\Circle.cpp" />
     <ClCompile Include="engine\src\2D\Rect.cpp" />
     <ClCompile Include="engine\src\Mesh\Mesh.cpp" />
     <ClCompile Include="engine\src\Time\Time.cpp" />
@@ -207,6 +208,7 @@
     <ClCompile Include="Test\Test_Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="engine\include\2D\Circle.hpp" />
     <ClInclude Include="engine\include\2D\Rect.hpp" />
     <ClInclude Include="engine\include\App\App.hpp" />
     <ClInclude Include="engine\include\Asset\AssetPath.hpp" />
@@ -218,6 +220,8 @@
     <ClInclude Include="engine\include\IndexData\IndexData.hpp" />
     <ClInclude Include="engine\include\Mesh\Mesh.hpp" />
     <ClInclude Include="engine\include\Time\Time.hpp" />
+    <ClInclude Include="engine\include\Vertex\Vec.hpp" />
+    <ClInclude Include="engine\include\Vertex\Vertex2D.hpp" />
     <ClInclude Include="engine\lib\Dx12\include\Common\Common.hpp" />
     <ClInclude Include="engine\include\Engine.hpp" />
     <ClInclude Include="engine\include\EngineGraphic.hpp" />
@@ -257,7 +261,6 @@
     <ClInclude Include="engine\include\Texture\Texture.hpp" />
     <ClInclude Include="engine\include\Transform\Transform.hpp" />
     <ClInclude Include="engine\lib\Dx12\include\Type\Type.hpp" />
-    <ClInclude Include="engine\lib\Dx12\include\Vertex\Vertex2D.hpp" />
     <ClInclude Include="engine\include\Window\Window.hpp" />
     <ClInclude Include="engine\lib\Dx12\src\Shader\ShaderHelper.hpp" />
     <ClInclude Include="engine\lib\Math\MathLib.hpp" />
