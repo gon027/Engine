@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="engine">
+      <UniqueIdentifier>{73527709-f571-4097-b585-06cdf4f5302b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Window">
+      <UniqueIdentifier>{fe9e09dc-d681-48db-accf-ddd6da30fd5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics">
+      <UniqueIdentifier>{96435987-f632-4cfe-b7ff-782419f5dcdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Library">
+      <UniqueIdentifier>{cbd34b4b-123e-429d-b0df-4c556bff1d36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{802e5eba-6096-4e52-a473-fec780104f14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Main">
+      <UniqueIdentifier>{0c6c1c16-4e90-484e-9900-c7a174f1c3f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\EngineCore">
+      <UniqueIdentifier>{187d2301-1c6d-43c5-b95d-3f3125f99856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Common">
+      <UniqueIdentifier>{3c0569c5-6dbe-485a-8446-6ce07ee56619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Adapter">
+      <UniqueIdentifier>{90cd7347-dcc8-4fbd-ad2d-61b0b591ee2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Device">
+      <UniqueIdentifier>{ef4f2569-7be2-484d-9a5a-cff4c630d998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Factory">
+      <UniqueIdentifier>{d259b58b-9258-4ce9-95e0-07a69f384913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\CommandList">
+      <UniqueIdentifier>{adb14aef-904f-4157-9925-d0c87807ffdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\CommandQueue">
+      <UniqueIdentifier>{1fc7d4d7-b614-4101-a805-c91846aed7b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\CommandAllocator">
+      <UniqueIdentifier>{04c226df-4561-4581-a2b1-71965ccca3b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\RenderTarget">
+      <UniqueIdentifier>{d01d6e5b-40cc-41ae-aedb-b010afc85aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\RootSignature">
+      <UniqueIdentifier>{fb4df4d7-efe3-4bb8-ba3c-9afb79d34be2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\PipelineState">
+      <UniqueIdentifier>{36d6aca8-6e4e-4f5f-81fa-dbc64d04cb66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Shader">
+      <UniqueIdentifier>{17d8d6f9-1e01-44f3-a062-81eea89dec59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Resource">
+      <UniqueIdentifier>{405063c7-f4b9-4134-bd94-9414ff70b201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\DescriptorHeap">
+      <UniqueIdentifier>{d3a33408-1c2c-4f67-8649-d106879ebdc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\IndexBuffer">
+      <UniqueIdentifier>{7e5e610e-4c08-495f-abd6-f1392e008464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\VertexBuffer">
+      <UniqueIdentifier>{714518a3-cf3f-4287-9b50-da9434b4c52f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\ConstantBuffer">
+      <UniqueIdentifier>{4c21c4ef-5a73-4ef2-9927-a941b1715bb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Type">
+      <UniqueIdentifier>{30a5cbab-1897-4265-9258-97455844c49f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\shader">
+      <UniqueIdentifier>{b10c2bae-ab0c-4e5e-b66a-30bf46b958de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Vertex">
+      <UniqueIdentifier>{8e9fbb28-bbba-4ff1-a606-305b4c70c837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Mesh">
+      <UniqueIdentifier>{668d13a4-1361-4c5d-adc7-5e8b9ce73872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Input">
+      <UniqueIdentifier>{f0924b8c-db33-48f0-8811-c4f94e839ebd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Shader">
+      <UniqueIdentifier>{6ae96b4a-6e67-4878-9d26-4a0237deda6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Color">
+      <UniqueIdentifier>{92af9334-04d2-43e1-9bf7-af450dd3a617}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Camera">
+      <UniqueIdentifier>{721b163c-2c25-4a82-99ec-a81519c254f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Texture">
+      <UniqueIdentifier>{0bfcea86-2558-4ba1-8580-869beff358dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Sprite">
+      <UniqueIdentifier>{b980e706-7f9c-46c1-ad2b-7824e199f93b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Transform">
+      <UniqueIdentifier>{7faa2103-4eff-4b58-844c-183761f18098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\Asset">
+      <UniqueIdentifier>{5773dc2a-6bb7-4278-a4c0-2acd913d52fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Graphics\RenderingPipeline">
+      <UniqueIdentifier>{552f6cf5-2c99-4106-ba97-90123152970b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\App">
+      <UniqueIdentifier>{0d2cf23f-9237-41ee-aca5-b8633a96faba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Image">
+      <UniqueIdentifier>{df721c34-129e-489d-b567-89ca345237ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\Font">
+      <UniqueIdentifier>{fd5a5a3f-0c23-46ef-9f67-a157d38064af}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="engine\lib\src\Windows\Window.cpp">
+      <Filter>engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\EngineCore\EngineCore.cpp">
+      <Filter>engine\EngineCore</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Device\Device.cpp">
+      <Filter>engine\Graphics\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Device\Adapter.cpp">
+      <Filter>engine\Graphics\Adapter</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Device\Factory.cpp">
+      <Filter>engine\Graphics\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\CommandList\Dx12CommandList.cpp">
+      <Filter>engine\Graphics\CommandList</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\CommandList\Dx12CommandQueue.cpp">
+      <Filter>engine\Graphics\CommandQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\DepthStencil\DepthStencil.cpp">
+      <Filter>engine\Graphics\RenderTarget</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\PipelineState\InputLayout.cpp">
+      <Filter>engine\Graphics\RootSignature</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\PipelineState\PipelineState.cpp">
+      <Filter>engine\Graphics\PipelineState</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\RootSignature\RootSignature.cpp">
+      <Filter>engine\Graphics\RootSignature</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Input\Input.cpp">
+      <Filter>engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Input\Mouse.cpp">
+      <Filter>engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Input\KeyBoard.cpp">
+      <Filter>engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Shader\PixelShader.cpp">
+      <Filter>engine\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Shader\VertexShader.cpp">
+      <Filter>engine\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Color\Color.cpp">
+      <Filter>engine\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Texture\Texture.cpp">
+      <Filter>engine\Graphics\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Sprite\Sprite.cpp">
+      <Filter>engine\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\PipelineState\RenderingPipeline2D.cpp">
+      <Filter>engine\Graphics\RenderingPipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\App\App.cpp">
+      <Filter>engine\App</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Font\Font.cpp">
+      <Filter>engine\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\DescriptorHeap\DescriptorHeap.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Camera\Camera2D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Image\Image.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Font\FontBitMap.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Debug\Debug.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Time\Time.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\2D\Rect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Mesh\Mesh.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\2D\Circle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Sample\Shooting\main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Buffer\Dx12Resource.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_Window.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Resource.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_Device.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_Factory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_CommandList.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_CommandQueue.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_CoreMain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\SwapChain\Dx12SwapChain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_SwapChain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_InputLayout.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_Pipeline.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Texture\Dx12Texture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Camera\Camera3D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\ModelLoader\ModelImporter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\ModelLoader\PMD\src\PMDLoader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\ModelLoader\PMX\src\PMXLoader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\include\Model\Model.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Buffer\VertexBuffer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Buffer\IndexBuffer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\src\Buffer\ConstantBuffer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Shader_Resource.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Shader\Dx12Shader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Dx12\Shader\Dx12ShaderManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_Texture_Load.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\lib\src\Windows\WindowsMain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Test_Core\Test_Core_CreateMethod.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine\lib\src\Windows\WinProc.hpp">
+      <Filter>engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Windows\Window.hpp">
+      <Filter>engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Library\Librarys.hpp">
+      <Filter>engine\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Library\d3dx12.h">
+      <Filter>engine\Library</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\EngineMain\EngineMain.hpp">
+      <Filter>engine\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\EngineCore\EngineCore.hpp">
+      <Filter>engine\EngineCore</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\EngineCore\Common.hpp">
+      <Filter>engine\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Device\Device.hpp">
+      <Filter>engine\Graphics\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Device\Adapter.hpp">
+      <Filter>engine\Graphics\Adapter</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Device\Factory.hpp">
+      <Filter>engine\Graphics\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\CommandList\Dx12CommandList.hpp">
+      <Filter>engine\Graphics\CommandList</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\CommandList\Dx12CommandQueue.hpp">
+      <Filter>engine\Graphics\CommandQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\DepthStencil\DepthStencil.hpp">
+      <Filter>engine\Graphics\RenderTarget</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\PipelineState\InputLayout.hpp">
+      <Filter>engine\Graphics\RootSignature</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\PipelineState\PipelineState.hpp">
+      <Filter>engine\Graphics\PipelineState</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\RootSignature\RootSignature.hpp">
+      <Filter>engine\Graphics\RootSignature</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Type\Type.hpp">
+      <Filter>engine\Graphics\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Engine.hpp">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Input\Input.hpp">
+      <Filter>engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Input\Key.hpp">
+      <Filter>engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Input\KeyBoard.hpp">
+      <Filter>engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Input\Mouse.hpp">
+      <Filter>engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Shader\PixelShader.hpp">
+      <Filter>engine\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Shader\VertexShader.hpp">
+      <Filter>engine\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Color\Color.hpp">
+      <Filter>engine\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Camera\Camera2D.hpp">
+      <Filter>engine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Texture\Texture.hpp">
+      <Filter>engine\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Sprite\Sprite.hpp">
+      <Filter>engine\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Transform\Transform.hpp">
+      <Filter>engine\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Shader\ShaderHelper.hpp">
+      <Filter>engine\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Input\MouseType.hpp">
+      <Filter>engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Asset\AssetPath.hpp">
+      <Filter>engine\Graphics\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\MatrixBuffer\MatrixBuffer.hpp">
+      <Filter>engine\Graphics\ConstantBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\PipelineState\RenderingPipeline2D.hpp">
+      <Filter>engine\Graphics\RenderingPipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\App\App.hpp">
+      <Filter>engine\App</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Image\Image.hpp">
+      <Filter>engine\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Font\Font.hpp">
+      <Filter>engine\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Font\GlyphData.hpp">
+      <Filter>engine\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Input\Version.hpp">
+      <Filter>engine\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\DescriptorHeap\DescriptorHeap.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\EngineGraphic.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Camera\Camera3D.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Font\FontBitMap.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Debug\Debug.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Time\Time.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\2D\Rect.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\IndexData\IndexData.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Mesh\Mesh.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\Math\MathLib.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\2D\Circle.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Vertex\Vertex2D.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Vertex\Vec.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Vertex\Vertex3D.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Core\Resource.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Buffer\Dx12Resource.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\IWindow.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\ICommandList.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\IDevice.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\IFactory.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Core\ResourceOption.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\ICommandQueue.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\ViewPort.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\ScissorRect.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\RenderTarget.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\ISwapChain.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\SwapChain\Dx12SwapChain.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\Fwd.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\Pipeline.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\DepthStencil.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Texture\Dx12Texture.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\include\ITexture.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Common\Helper.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\FBX\FBXDataStruct.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\ModelData.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\ModelImporter.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\ModelLoader.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\PMD\PMDDataStruct.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\PMD\PMDFile.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\PMD\PMDLoader.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\PMX\PMXDataStruct.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\PMX\PMXFile.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\ModelLoader\PMX\PMXLoader.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Model\Model.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Buffer\VertexBuffer.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Buffer\IndexBuffer.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\include\Buffer\ConstantBuffer.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Shader\Dx12Shader.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\lib\src\Dx12\Shader\Dx12ShaderManager.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Test\shader\TestPixel.hlsl">
+      <Filter>Test\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Test\shader\TestVertex.hlsl">
+      <Filter>Test\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Test\shader\TestTextureVertex.hlsl">
+      <Filter>Test\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Test\shader\TestTexture.hlsl">
+      <Filter>Test\shader</Filter>
+    </FxCompile>
+    <FxCompile Include="engine\lib\shader\TexturePixel.hlsl">
+      <Filter>engine\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="engine\lib\shader\TextureVertex.hlsl">
+      <Filter>engine\Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Test\shader\Header.hlsli">
+      <Filter>Test\shader</Filter>
+    </None>
+    <None Include="engine\lib\shader\Header.hlsli">
+      <Filter>engine\Shader</Filter>
+    </None>
+  </ItemGroup>
+</Project>
