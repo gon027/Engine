@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 #include "Common.hpp"
+#include "../Fwd.hpp"
 
 #define Engine()             EngineCore::get()
 #define EngineWindow()       EngineCore::get()->getWindow()
@@ -11,6 +12,7 @@
 #define EngineCommandList()  EngineCore::get()->getCommandList()
 #define EngineCommandQueue() EngineCore::get()->getCommandQueue()
 #define EngineSwapChain()    EngineCore::get()->getSwapChain()
+#define EngineDepthStencil() EngineCore::get()->getDepthStencil()
 
 namespace engine {
 
@@ -33,12 +35,13 @@ namespace engine {
 
 		void end();
 
-		std::shared_ptr<core::IWindow>       getWindow() const;
-		std::shared_ptr<core::IFactory>      getFactory() const;
-		std::shared_ptr<core::IDevice>       getDevice() const;
-		std::shared_ptr<core::ICommandList>  getCommandList() const;
-		std::shared_ptr<core::ICommandQueue> getCommandQueue() const;
-		std::shared_ptr<core::ISwapChain>    getSwapChain() const;
+		window_ptr       getWindow() const;
+		factory_ptr      getFactory() const;
+		device_ptr       getDevice() const;
+		commandList_ptr  getCommandList() const;
+		commandQueue_ptr getCommandQueue() const;
+		swapChain_ptr    getSwapChain() const;
+		depthStencil_ptr getDepthStencil() const;
 
 	protected:
 		EngineCore();
@@ -49,12 +52,13 @@ namespace engine {
 		EngineCore(EngineCore&&);
 
 	private:
-		std::shared_ptr<core::IWindow>       window;
-		std::shared_ptr<core::IFactory>      factory;
-		std::shared_ptr<core::IDevice>       device;
-		std::shared_ptr<core::ICommandList>  commandList;
-		std::shared_ptr<core::ICommandQueue> commandQueue;
-		std::shared_ptr<core::ISwapChain>    swapChain;
+		window_ptr       window;
+		factory_ptr      factory;
+		device_ptr       device;
+		commandList_ptr  commandList;
+		commandQueue_ptr commandQueue;
+		swapChain_ptr    swapChain;
+		depthStencil_ptr depthStencil;
 	};
 
 }

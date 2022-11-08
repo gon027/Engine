@@ -13,6 +13,7 @@ namespace engine {
 		class ICommandList;
 		class ICommandQueue;
 		class ISwapChain;
+		class DepthStencil;
 		class ITexture;
 	}
 
@@ -22,6 +23,7 @@ namespace engine {
 	using commandList_ptr  = std::shared_ptr<core::ICommandList>;
 	using commandQueue_ptr = std::shared_ptr<core::ICommandQueue>;
 	using swapChain_ptr    = std::shared_ptr<core::ISwapChain>;
+	using depthStencil_ptr = std::shared_ptr<core::DepthStencil>;
 	using texture_ptr      = std::shared_ptr<core::ITexture>;
 	using resource_ptr     = std::shared_ptr<Resource>;
 }

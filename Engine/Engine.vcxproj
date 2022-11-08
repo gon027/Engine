@@ -210,11 +210,13 @@
     <ClCompile Include="Test\Test_Core\Test_Core_Device.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Core_Texture_Load.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Core_Factory.cpp" />
+    <ClCompile Include="Test\Test_Core\Test_Core_EngineCore.cpp" />
     <ClCompile Include="Test\Test_Core\Test_InputLayout.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Resource.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Shader_Resource.cpp" />
     <ClCompile Include="engine\lib\src\Windows\Window.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Core_Window.cpp" />
+    <ClCompile Include="Test\Test_Module\Test_Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\include\2D\Circle.hpp" />
