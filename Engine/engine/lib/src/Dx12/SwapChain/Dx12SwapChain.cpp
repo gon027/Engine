@@ -72,7 +72,7 @@ namespace engine {
 			
 			HRESULT hr = factory->get()->CreateSwapChainForHwnd(
 				commandQueue->get(),
-				window->getHWnd(),
+				(HWND)window->getHandle(),
 				&desc,
 				nullptr,
 				nullptr,

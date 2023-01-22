@@ -47,6 +47,15 @@ namespace engine {
 			return title;
 		}
 
+		void* getInstance() const override {
+			return hInstance;
+		}
+
+		void* getHandle() const override {
+			return hwnd;
+		} 
+
+		/*
 		inline const HINSTANCE getHInstance() const {
 			return hInstance;
 		}
@@ -54,6 +63,7 @@ namespace engine {
 		inline const HWND getHWnd() const {
 			return hwnd;
 		}
+		*/
 
 	protected:
 		bool registerWindow();

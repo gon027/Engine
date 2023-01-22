@@ -216,6 +216,9 @@
     <ClCompile Include="Test\Test_Core\Test_Shader_Resource.cpp" />
     <ClCompile Include="engine\lib\src\Windows\Window.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Core_Window.cpp" />
+    <ClCompile Include="Test\Test_Run\Test_Imgui.cpp" />
+    <ClCompile Include="Test\Test_Module\Test_Circle.cpp" />
+    <ClCompile Include="Test\Test_Module\Test_Rect.cpp" />
     <ClCompile Include="Test\Test_Module\Test_Texture.cpp" />
   </ItemGroup>
   <ItemGroup>

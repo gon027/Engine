@@ -31,6 +31,10 @@ namespace engine {
 
 			virtual int getHeight() const = 0;
 
+			virtual void* getInstance() const = 0;
+
+			virtual void* getHandle() const = 0;
+
 			virtual string getTitle() const = 0;
 		};
 

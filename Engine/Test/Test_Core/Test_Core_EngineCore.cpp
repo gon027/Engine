@@ -1,3 +1,4 @@
+/*
 #include "../../engine/include/EngineMain/EngineMain.hpp"
 
 #include "../../engine/lib/include/EngineCore/EngineCore.hpp"
@@ -66,3 +67,4 @@ void gnMain() {
 		Sleep(1);
 	}
 }
+*/
