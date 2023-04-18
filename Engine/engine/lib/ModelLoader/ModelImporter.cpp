@@ -28,7 +28,7 @@ namespace {
 			for (size_t i{ 0 }; i < vertexSize; ++i) {
 				std::memcpy(_modelData->vertexes[i].position, _pmdFile.vertexes[i].position, sizeof(_pmdFile.vertexes[i].position));
 				std::memcpy(_modelData->vertexes[i].normal, _pmdFile.vertexes[i].normal, sizeof(_pmdFile.vertexes[i].normal));
-				std::memcpy(_modelData->vertexes[i].uv, _pmdFile.vertexes[i].uv, sizeof(_pmdFile.vertexes[i].uv));
+				std::memcpy(_modelData->vertexes[i].uv, _pmdFile.vertexes[i].uv, sizeof(float[2]));
 			}
 		}
 
@@ -71,9 +71,9 @@ namespace {
 			size_t vertexSize = _pmxFile.vertexes.size();
 			_modelData->vertexes.resize(vertexSize);
 			for (size_t i{ 0 }; i < vertexSize; ++i) {
-				std::memcpy(_modelData->vertexes[i].position, _pmxFile.vertexes[i].position, sizeof(_pmxFile.vertexes[i].position));
-				std::memcpy(_modelData->vertexes[i].normal, _pmxFile.vertexes[i].normal, sizeof(_pmxFile.vertexes[i].normal));
-				std::memcpy(_modelData->vertexes[i].uv, _pmxFile.vertexes[i].uv, sizeof(_pmxFile.vertexes[i].uv));
+				std::memcpy(_modelData->vertexes[i].position, _pmxFile.vertexes[i].position, sizeof(float[3]));
+				std::memcpy(_modelData->vertexes[i].normal, _pmxFile.vertexes[i].normal, sizeof(float[3]));
+				std::memcpy(_modelData->vertexes[i].uv, _pmxFile.vertexes[i].uv, sizeof(float[2]));
 			}
 		}
 
@@ -91,6 +91,39 @@ namespace {
 
 				_modelData->materials[i].textureName = _pmxFile.textures[textureIndex];
 				_modelData->materials[i].vertCount = _pmxFile.materials[i].surface;
+
+
+				std::memcpy(_modelData->materials[i].material.diffuse, _pmxFile.materials[i].diffuse, sizeof(_pmxFile.materials[i].diffuse));
+				std::memcpy(_modelData->materials[i].material.specular, _pmxFile.materials[i].specular, sizeof(_pmxFile.materials[i].specular));
+				_modelData->materials[i].material.specularCoefficient = _pmxFile.materials[i].specularCoefficient;
+				std::memcpy(_modelData->materials[i].material.ambient, _pmxFile.materials[i].ambient, sizeof(_pmxFile.materials[i].ambient));
+				
+			}
+		}
+
+		// スフィアテクスチャのセット
+		{
+			size_t materialSize = _pmxFile.materials.size();
+			for (size_t i{ 0 }; i < materialSize; ++i) {
+				_modelData->materials[i].sphereMode = _pmxFile.materials[i].mode;
+
+				auto sphereIndex = _pmxFile.materials[i].sphereTextureIndex;
+
+				if (sphereIndex != 0xff) {
+					_modelData->materials[i].sphereName = _pmxFile.textures[sphereIndex];
+				}
+			}
+		}
+
+		// トゥーンテクスチャのセット
+		{
+			size_t materialSize = _pmxFile.materials.size();
+			for (size_t i{ 0 }; i < materialSize; ++i) {
+				auto toonIndex = _pmxFile.materials[i].indexSize;
+
+				if (toonIndex != 0xff) {
+					_modelData->materials[i].toonName = _pmxFile.textures[toonIndex];
+				}
 			}
 		}
 
@@ -126,6 +159,11 @@ void ModelImporter::loadModel(const std::string& _name, const std::string& _mode
 		modelList.emplace(_name, modelData);
 	}
 
+}
+
+void ModelImporter::loadModel(const std::string& _name, const ModelInfo& _modelInfo)
+{
+	loadModel(_name, _modelInfo.modelDir, _modelInfo.modelFile);
 }
 
 ModelDataPtr ModelImporter::getModelData(const std::string& _name)

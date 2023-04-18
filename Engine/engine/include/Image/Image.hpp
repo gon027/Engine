@@ -7,6 +7,10 @@ namespace engine {
 
 	class Image {
 	public:
+		static Image* WhiteImage(u64 _width = 2, u64 _height = 2);
+		static Image* BlackImage(u64 _width = 2, u64 _height = 2);
+
+	public:
 		Image();
 		Image(u64 _width, u64 _height);
 		Image(u64 _width, u64 _height, u8* _data);

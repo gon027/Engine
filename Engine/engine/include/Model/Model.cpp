@@ -3,33 +3,22 @@
 #include "../../lib/ModelLoader/ModelData.hpp"
 
 #include "../../lib/src/Dx12/Device/Device.hpp"
+#include "../../lib/src/Dx12/CommandList/Dx12CommandList.hpp"
+
+#include "../../lib/ModelLoader/PMX/PMXDataStruct.hpp"
+
+#include "../Image/Image.hpp"
 
 namespace engine {
-
-	namespace {
-
-		std::wstring convertStringToWString(const std::string& _str) {
-			size_t len = _str.size();  // 文字列の長さ
-			size_t convLen;            // 変換後文字列
-
-			// 文字列の格納場所
-			wchar_t* wc = new wchar_t[sizeof(wchar_t) * (len + 2)];
-			mbstowcs_s(&convLen, wc, len + 1, _str.c_str(), _TRUNCATE);
-
-			std::wstring res{ wc };
-			delete[] wc;
-
-			return res;
-		}
-	}
 
 	Model::Model(device_ptr _device, ModelDataPtr _model)
 		: modelData(_model)
 		, transform({})
-		, vertex()
-		, index()
 		, vertexBuffer()
 		, indexBuffer()
+		, constantBuffer()
+		, textures()
+		, materials()
 	{
 		assert(_device != nullptr);
 		assert(modelData != nullptr);
@@ -44,100 +33,151 @@ namespace engine {
 			_device, modelData->indexes.data(), sizeof(unsigned int), modelData->indexes.size()
 		);
 
-		/*
-		// リソースビューの設定
+		auto world = transform.getWorldMatrix();
+		constantBuffer.init(_device, &world, sizeof(world));
+
+		// テクスチャ読み込み
+		const auto materialSize = _model->materials.size();
 		{
-			std::vector<std::wstring> textureName;
-
-			{
-				auto textureSize = modelData->materials.size();
-
-				// std::unordered_set<std::wstring> textureName;
-				std::unordered_map<std::wstring, size_t> temps;
-
-				size_t off{ 0 };
-				for (size_t i{ 0 }; i < textureSize; ++i) {
-					auto t = modelData->materials[i].textureName;
-
-					std::wstring wstr;
-					{
-						if (std::holds_alternative<std::string>(t)) {
-							auto a = std::get<std::string>(t);
-							wstr = convertStringToWString(a);
-						}
-
-						if (std::holds_alternative<std::wstring>(t)) {
-							wstr = std::get<std::wstring>(t);
-						}
-					}
-
-					//if (!textureName.contains(wstr)) { // 画像が登録されていない場合
-						//textureName.emplace(wstr);
-
-					auto itr = std::find(textureName.begin(), textureName.end(), wstr);
-					if (itr == textureName.end()) {
-						textureName.emplace_back(wstr);
-
-						TextureResource::getIns()->addTexture(wstr, _device);
-
-						temps[wstr] = off;
-
-						offsets.push_back(off);
-						++off;
-					}
-					else {
-						offsets.push_back(temps[wstr]);
-					}
-				}
-			}
-
-			{
-				auto textureSize = modelData->materials.size();
-
-				// シェーダと定数バッファのDescriptor Heapを作成
-				D3D12_DESCRIPTOR_HEAP_DESC dhDesc{};
-				dhDesc.NumDescriptors = (UINT)(textureSize);
-				dhDesc.NodeMask = 0;
-				dhDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
-				dhDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
-				auto hr = device->get()->CreateDescriptorHeap(&dhDesc, IID_PPV_ARGS(srvDescHeap.GetAddressOf()));
-				if (FAILED(hr)) {
-					// return false;
+			for (auto i{ 0 }; i < materialSize; ++i) {
+				auto textureName = std::get<std::wstring>(_model->materials[i].textureName);
+				if (textures.contains(textureName)) {
+					continue;
 				}
 
-				incrimentSize = device->get()->GetDescriptorHandleIncrementSize(
-					D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV
-				);
-
-				size_t i{ 0 };
-				for (auto& ws : textureName) {
-
-					auto& d = TextureResource::getIns()->getTexture(ws, _device);
-
-					// シェーダリソースビューの作成
-					D3D12_SHADER_RESOURCE_VIEW_DESC desc{};
-					desc.Format = d.getResource()->GetDesc().Format;
-					desc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
-					desc.Texture2D.MipLevels = d.getResource()->GetDesc().MipLevels;
-					desc.Texture2D.MostDetailedMip = 0;
-					desc.Texture2D.PlaneSlice = 0;
-					desc.Texture2D.ResourceMinLODClamp = 0.0f;
-					desc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
-
-					auto cpuHandle = srvDescHeap->GetCPUDescriptorHandleForHeapStart();
-					cpuHandle.ptr += incrimentSize * i;
-					device->get()->CreateShaderResourceView(d.getResource(), &desc, cpuHandle);
-
-					++i;
-
-				}
+				Dx12Texture texture{};
+				texture.load(_device, textureName);
+				textures[textureName] = std::move(texture);
 			}
 		}
-		*/
+		// マテリアルの定数バッファ
+		{
+			for (auto i{ 0 }; i < materialSize; ++i) {
+				auto textureName = std::get<std::wstring>(_model->materials[i].textureName);
+				if (materials.contains(textureName)) {
+					continue;
+				}
+
+				ConstantBuffer csb{};
+				csb.init(_device, &_model->materials[i].material, sizeof(_model->materials[i].material));
+				materials[textureName] = std::move(csb);
+			}
+		}
+
+		// Sphere Texture作成
+		{
+			for (auto i{ 0 }; i < materialSize; ++i) {
+
+				
+				if (std::holds_alternative<std::string>(_model->materials[i].sphereName)) {
+					auto sphereMode = _model->materials[i].sphereMode;
+					if (sphereMode == model::pmx::SphereMode::Addition) {
+						Image img{ 2, 2 };
+						Dx12Texture texture{};
+						texture.load(_device, img);
+						textures[L"Null_WhiteTexture"] = std::move(texture);
+					}
+				}
+
+
+				// 空文字の場合
+				if (!std::holds_alternative<std::string>(_model->materials[i].sphereName)) {
+
+					auto textureName = std::get<std::wstring>(_model->materials[i].sphereName);
+					if (textures.contains(textureName)) {
+						continue;
+					}
+
+			
+					Dx12Texture texture{};
+					if (textureName != L"") {
+						texture.load(_device, textureName);
+						textures[textureName] = std::move(texture);
+						continue;
+					}
+			
+
+
+				}
+
+				/*
+				Dx12Texture texture{};
+				auto sphereMode = _model->materials[i].sphereMode;
+				if (sphereMode == model::pmx::SphereMode::Addition) {
+					Image img{ 2, 2, WhiteTexture };
+					texture.load(_device, img);
+					textures[L"Null_WhiteTexture"] = std::move(texture);
+				}
+				else if (sphereMode == model::pmx::SphereMode::Multiply) {
+					Image img{ 2, 2, WhiteTexture };
+					texture.load(_device, img);
+					textures[L"Null_BlackTexture"] = std::move(texture);
+				}
+				*/
+			}
+		}
 	}
 
 	Model::~Model()
 	{
 	}
+
+	void Model::update()
+	{
+		static float angle = 3.14f;
+		angle += 0.1f;
+
+		transform.rotation = gnLib::Quaternion::rotationAxis({ 0.0f, 1.0f, 0.0f }, angle);
+	}
+
+	void Model::draw(commandList_ptr _cmdList)
+	{
+		auto world = transform.getWorldMatrix();
+		constantBuffer.update(&world, sizeof(world));
+		_cmdList->setConstantBuffer(constantBuffer, 1);
+
+		_cmdList->setPrimitiveTopology();
+		_cmdList->setVertexBuffer(vertexBuffer);
+		_cmdList->setIndexBuffer(indexBuffer);
+
+
+		auto offset{ 0 };
+		for (auto index{ 0 }; index < modelData->materials.size(); ++index) {
+			auto textureName = std::get<std::wstring>(modelData->materials[index].textureName);
+			
+
+			_cmdList->setConstantBuffer(materials[textureName], 2);
+
+			{
+				ID3D12DescriptorHeap* heaps[]{ textures[textureName].getHeap() };
+				_cmdList->setDescriptorHeaps(_countof(heaps), heaps);
+
+				auto handle = textures[textureName].getHeap()->GetGPUDescriptorHandleForHeapStart();
+				_cmdList->setGraphicsRootDescriptorTable(3, handle);
+			}
+
+			{
+				if (!std::holds_alternative<std::string>(modelData->materials[index].sphereName)) {
+					auto spherename = std::get<std::wstring>(modelData->materials[index].sphereName);
+					ID3D12DescriptorHeap* sheaps[]{ textures[spherename].getHeap() };
+					//_cmdList->setDescriptorHeaps(_countof(sheaps), sheaps);
+
+					//auto handle = textures[spherename].getHeap()->GetGPUDescriptorHandleForHeapStart();
+					//_cmdList->setGraphicsRootDescriptorTable(4, handle);
+				}
+			}
+
+			auto count = modelData->materials[index].vertCount;
+			_cmdList->drawIndexedInstanced(count, 1, offset, 0, 0);
+
+			offset += count;
+		}
+	}
+
+	void Model::setPosition(const Vector3& _pos)
+	{
+		transform.position = _pos;
+	}
+
 
 }

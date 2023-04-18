@@ -39,34 +39,40 @@ namespace engine {
 			return;
 		}
 
-		if (!factory->init()) {
-			throw std::runtime_error("Dx12 Factory Initialization Failed. \n");
-			return;
+		// デバイス類
+		{
+			if (!factory->init()) {
+				throw std::runtime_error("Dx12 Factory Initialization Failed. \n");
+				return;
+			}
+
+			if (!device->init(factory)) {
+				throw std::runtime_error("Dx12 Device Initialization Failed. \n");
+				return;
+			}
 		}
 
-		if (!device->init(factory)) {
-			throw std::runtime_error("Dx12 Device Initialization Failed. \n");
-			return;
-		}
+		// グラフィックス類
+		{
+			if (!commandList->init(device)) {
+				throw std::runtime_error("Dx12 CommandList Initialization Failed. \n");
+				return;
+			}
 
-		if (!commandList->init(device)) {
-			throw std::runtime_error("Dx12 CommandList Initialization Failed. \n");
-			return;
-		}
+			if (!commandQueue->init(device, commandList)) {
+				throw std::runtime_error("Dx12 CommandQueue Initialization Failed. \n");
+				return;
+			}
 
-		if (!commandQueue->init(device, commandList)) {
-			throw std::runtime_error("Dx12 CommandQueue Initialization Failed. \n");
-			return;
-		}
+			if (!swapChain->init(window, factory, device, commandQueue)) {
+				throw std::runtime_error("Dx12 SwapChain Initialization Failed. \n");
+				return;
+			}
 
-		if (!swapChain->init(window, factory, device, commandQueue)) {
-			throw std::runtime_error("Dx12 SwapChain Initialization Failed. \n");
-			return;
-		}
-
-		if (!depthStencil->init(window, device)) {
-			throw std::runtime_error("Dx12 DepthStencil Initialization Failed. \n");
-			return;
+			if (!depthStencil->init(window, device)) {
+				throw std::runtime_error("Dx12 DepthStencil Initialization Failed. \n");
+				return;
+			}
 		}
 	}
 

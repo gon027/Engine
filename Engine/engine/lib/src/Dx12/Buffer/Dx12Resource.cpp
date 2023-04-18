@@ -166,6 +166,14 @@ namespace engine {
 
 	void Dx12Resource::unMap()
 	{
+		if (ResourceType::ShaderResource) {
+			return;
+		}
+
+		if (!resource) {
+			return;
+		}
+
 		resource->Unmap(0, nullptr);
 	}
 }

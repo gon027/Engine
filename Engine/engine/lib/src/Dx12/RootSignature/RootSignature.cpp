@@ -1,6 +1,7 @@
 #include "RootSignature.hpp"
 #include "../Device/Device.hpp"
 #include <unordered_map>
+#include <format>
 
 namespace engine {
 
@@ -167,7 +168,6 @@ namespace engine {
 
 		auto* device = static_cast<Dx12Device*>(_device.get());
 
-		const auto size = _desc.getDescriptorSize() + _desc.getDescriptorTableSize() + _desc.getConstansSize();
 		std::vector<D3D12_ROOT_PARAMETER> prameters{};
 
 		for (size_t i = 0; i < _desc.getDescriptorSize(); ++i) {
@@ -181,40 +181,47 @@ namespace engine {
 
 			prameters.emplace_back(param);
 		}
+		
+		std::vector<D3D12_DESCRIPTOR_RANGE> ranges{};
+		{
+			for (size_t i = 0; i < _desc.getDescriptorTableSize(); ++i) {
+				auto& dParam = _desc.getDescriptorTable(i);
 
-		for (size_t i = 0; i < _desc.getDescriptorTableSize(); ++i) {
-			auto& dParam = _desc.getDescriptorTable(i);
+				D3D12_DESCRIPTOR_RANGE range{};
+				range.RangeType = DescriptorRangeList.at(dParam.desciropterRange);
+				range.NumDescriptors = -1;
+				range.BaseShaderRegister = dParam.shaderRegister;
+				range.RegisterSpace = dParam.registerSpace;
+				range.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
 
-			D3D12_DESCRIPTOR_RANGE ranges{};
-			ranges.RangeType = DescriptorRangeList.at(dParam.desciropterRange);
-			ranges.NumDescriptors = -1;
-			ranges.BaseShaderRegister = dParam.shaderRegister;
-			ranges.RegisterSpace = dParam.registerSpace;
-			ranges.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
+				ranges.emplace_back(range);
+			}
 
-			D3D12_ROOT_PARAMETER param{};
-			param.ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
-			param.ShaderVisibility = ShaderVisibilityList.at(dParam.shaderVisibility);
-			param.DescriptorTable.NumDescriptorRanges = dParam.numDescriptorRanges;
-			param.DescriptorTable.pDescriptorRanges = &ranges;
+			for (size_t i = 0; i < _desc.getDescriptorTableSize(); ++i) {
+				auto& dParam = _desc.getDescriptorTable(i);
 
-			prameters.emplace_back(param);
+				D3D12_ROOT_PARAMETER param{};
+				param.ParameterType = D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE;
+				param.DescriptorTable.pDescriptorRanges = &ranges[i];
+				param.DescriptorTable.NumDescriptorRanges = dParam.numDescriptorRanges;
+				param.ShaderVisibility = ShaderVisibilityList.at(dParam.shaderVisibility);
+
+				prameters.emplace_back(param);
+			}
 		}
 
-		//
-
-		// Œã‚ÅÁ‚·
 		D3D12_STATIC_SAMPLER_DESC staticSampler[1]{};
 		staticSampler[0].Filter = D3D12_FILTER_MIN_MAG_MIP_POINT;
-		staticSampler[0].AddressU = D3D12_TEXTURE_ADDRESS_MODE_CLAMP;
-		staticSampler[0].AddressV = D3D12_TEXTURE_ADDRESS_MODE_CLAMP;
-		staticSampler[0].AddressW = D3D12_TEXTURE_ADDRESS_MODE_CLAMP;
+		staticSampler[0].AddressU = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+		staticSampler[0].AddressV = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
+		staticSampler[0].AddressW = D3D12_TEXTURE_ADDRESS_MODE_WRAP;
 		staticSampler[0].MaxLOD = FLT_MAX;
 		staticSampler[0].MinLOD = -FLT_MAX;
 		staticSampler[0].MaxAnisotropy = 0;
 		staticSampler[0].ComparisonFunc = D3D12_COMPARISON_FUNC_NEVER;
 		staticSampler[0].ShaderVisibility = D3D12_SHADER_VISIBILITY_ALL;
 
+		const auto size = _desc.getDescriptorSize() + _desc.getDescriptorTableSize() + _desc.getConstansSize();
 		D3D12_ROOT_SIGNATURE_DESC desc{};
 		desc.Flags = D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT;
 		desc.NumParameters = size;

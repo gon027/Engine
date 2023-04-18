@@ -11,7 +11,7 @@ namespace engine {
 	}
 
 	ConstantBuffer::ConstantBuffer()
-		: resource(new Dx12Resource{})
+		: resource(new Dx12Resource{})  // ‚¨‚Ü‚¦‚©
 		, pData(nullptr)
 		, bufferSize()
 	{
@@ -19,9 +19,7 @@ namespace engine {
 
 	ConstantBuffer::~ConstantBuffer()
 	{
-		if (resource) {
-			resource->unMap();
-		}
+		resource->unMap();
 	}
 
 	bool ConstantBuffer::init(device_ptr _device, const void* _data, size_t _size)

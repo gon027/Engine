@@ -1,5 +1,6 @@
 #include "../../include/Input/KeyBoard.hpp"
-// #include "../../lib/src/Dx12/include/EngineCore/EngineCore.hpp"
+
+#include "../../lib/include/EngineCore/EngineCore.hpp"
 #include "../../lib/src/Windows/Window.hpp"
 
 namespace engine {
@@ -31,10 +32,11 @@ namespace engine {
 	bool KeyBoard::init()
 	{
 		HRESULT hr{};
-		/*
-		auto* window = static_cast<Window*>(EngineWindow());
+
+		auto window = EngineWindow();
+
 		hr = DirectInput8Create(
-			window->getHInstance(), DIRECTINPUT_VERSION, IID_IDirectInput8, (LPVOID*)&device, NULL
+			(HINSTANCE)window->getInstance(), DIRECTINPUT_VERSION, IID_IDirectInput8, (LPVOID*)&device, NULL
 		);
 		if (FAILED(hr)) {
 			releaseDevice();
@@ -56,7 +58,7 @@ namespace engine {
 		}
 
 		hr = lpDevice->SetCooperativeLevel(
-			window->getHWnd(), DISCL_FOREGROUND | DISCL_NONEXCLUSIVE | DISCL_NOWINKEY
+			(HWND)window->getHandle(), DISCL_FOREGROUND | DISCL_NONEXCLUSIVE | DISCL_NOWINKEY
 		);
 		if (FAILED(hr)) {
 			releaseDevice();
@@ -65,7 +67,6 @@ namespace engine {
 		}
 
 		lpDevice->Acquire();
-		*/
 
 		return true;
 	}

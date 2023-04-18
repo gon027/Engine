@@ -29,4 +29,17 @@ namespace engine {
 		);
 	}
 
+	void Camera3D::setPos(const Vector3& _pos)
+	{
+		eye = _pos;
+		target = _pos;
+		target.z -= 1.0f;
+	}
+
+	void Camera3D::translate(float _x, float _y, float _z)
+	{
+		eye += { _x, _y, _z };
+		target += { _x, _y, _z };
+	}
+
 }

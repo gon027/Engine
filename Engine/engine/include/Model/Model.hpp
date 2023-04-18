@@ -12,9 +12,13 @@
 
 #include "../Buffer/VertexBuffer.hpp"
 #include "../Buffer/IndexBuffer.hpp"
+#include "../Buffer/ConstantBuffer.hpp"
 
 // 後で変える
+#include "../../lib/src/Dx12/Texture/Dx12Texture.hpp"
 #include "../../lib/src/Dx12/DescriptorHeap/DescriptorHeap.h"
+
+#include "../../lib/include/ICommandList.hpp"
 
 namespace model {
 	struct ModelData;
@@ -30,27 +34,27 @@ namespace engine {
 		Model(device_ptr _device, ModelDataPtr _model);
 		~Model();
 
-	private:
-		struct Vertex {
-			Vec3 position;
-			Vec3 normal;
-			Vec2 uv;
-		};
+		void update();
 
+		void draw(commandList_ptr _cmdList);
+
+		void setPosition(const Vector3& _pos);
+
+	private:
+		
+	private:
 		ModelDataPtr modelData;
 
 		Transform transform;
 
-		std::vector<Vertex> vertex;
-		std::vector<unsigned int> index;
-
+		// モデルのメッシュ
 		VertexBuffer vertexBuffer;
 		IndexBuffer indexBuffer;
+		ConstantBuffer constantBuffer;
 
-		std::vector<size_t> offsets;
-
-		D3D12DescriptorHeap srvDescHeap;
-		unsigned int incrimentSize;
+		// モデルデータ
+		std::unordered_map<std::wstring, Dx12Texture> textures;
+		std::unordered_map<std::wstring, ConstantBuffer> materials;
 	};
 
 }

@@ -68,6 +68,8 @@ namespace engine {
 
 			virtual void setGraphicsRootDescriptorTable(u64 _parameterIndex, D3D12_GPU_DESCRIPTOR_HANDLE _handle) = 0;
 
+			virtual void drawIndexedInstanced(u64 a, u64 b, u64 c, u64 d, u64 e) = 0;
+
 		};
 
 	}

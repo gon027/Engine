@@ -54,12 +54,22 @@ namespace engine {
 		}
 
 		{
+			{
+				auto width = window->getWidth();
+				auto height = window->getHeight();
+				std::string str{
+					"WindowSize = [width = " + std::to_string(width) +
+					", height = " + std::to_string(height) + "]\n"
+				};
+				OutputDebugString(str.c_str());
+			}
+
 			// スワップチェインの作成
 			DXGI_SWAP_CHAIN_DESC1 desc{};
-			// desc.Width = EngineWindow()->getWidth();
-			// desc.Height = EngineWindow()->getHeight();
-			desc.Width = 640;
-			desc.Height = 480;
+			desc.Width = window->getWidth();
+			desc.Height = window->getHeight();
+			//desc.Width = 640;
+			//desc.Height = 480;
 			desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 			desc.SampleDesc.Count = 1;
 			desc.SampleDesc = { .Count = 1, .Quality = 0 };

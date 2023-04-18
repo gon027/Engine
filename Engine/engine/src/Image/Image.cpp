@@ -21,7 +21,7 @@ namespace engine {
 	{
 		for (size_t y{ 0 }; y < height; ++y) {
 			for (size_t x{ 0 }; x < rowPitch; x += stride) {
-				setPixel(x, y, ColorI::Green);
+				setPixel(x, y, ColorI::White);
 			}
 		}
 	}

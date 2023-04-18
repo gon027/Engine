@@ -9,6 +9,16 @@ namespace engine {
 		Camera3D();
 		~Camera3D() = default;
 
+		void setPos(const Vector3& _pos);
+
+		void translate(float _x, float _y, float _z);
+
+		void rotateX(float _angle);
+		void rotateY(float _angle);
+		void rotateZ(float _angle);
+
+		void rotate(const Vector3& _axis);
+
 		Matrix4x4& getView() {
 			view = Matrix4x4::lookAtLH(eye, target, up);
 			return view;

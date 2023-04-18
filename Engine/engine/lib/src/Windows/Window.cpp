@@ -2,6 +2,11 @@
 #include "WinProc.hpp"
 #include <memory>
 
+#include "../../imgui/imgui.h"
+#include "../../imgui/imgui_impl_win32.h"
+
+extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND, UINT, WPARAM, LPARAM);
+
 namespace engine {
 
 	namespace {
@@ -23,7 +28,7 @@ namespace engine {
 
 		WindowSize getWindowSize(int _width, int _height) {
 			RECT rect{ 0, 0, (LONG)_width, (LONG)_height };
-			AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+			// AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
 			return {
 				rect.right - rect.left,
@@ -31,6 +36,44 @@ namespace engine {
 			};
 		}
 
+	}
+
+	LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
+		auto windowSize = getScreenSize();
+
+		std::string str{
+			"[width = " + std::to_string(windowSize.width) +
+			", height = " + std::to_string(windowSize.height) + "]\n"
+		};
+
+		switch (msg)
+		{
+		case WM_DESTROY:
+			PostQuitMessage(0);
+			return 0;
+
+		case WM_SIZE: // ウインドウのサイズ変更されたときに呼ばれる
+			// OutputDebugString("aaaa\n");
+
+			windowSize.width = LOWORD(lp);
+			windowSize.height = HIWORD(lp);
+
+			str = {
+			"[width = " + std::to_string(windowSize.width) +
+			", height = " + std::to_string(windowSize.height) + "]\n"
+			};
+
+			OutputDebugString(str.c_str());
+
+			break;
+
+		default:
+			break;
+		}
+
+		ImGui_ImplWin32_WndProcHandler(hwnd, msg, wp, lp);
+
+		return DefWindowProc(hwnd, msg, wp, lp);
 	}
 
 	Window::Window()

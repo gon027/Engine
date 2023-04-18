@@ -1,9 +1,9 @@
 #include "../../include/Texture/Texture.hpp"
 #include "../../include/Image/Image.hpp"
 
+/*
 namespace engine {
 
-	/*
 	TexturePtr Texture::create(const std::wstring& _path)
 	{
 		TexturePtr result{ new Texture{} };
@@ -29,10 +29,6 @@ namespace engine {
 		, height(0)
 		, depthOrArraySize(0)
 		, mipLevels(0)
-		, resourceDimention()
-		, textureFormat()
-		, resource(nullptr)
-		, descriptorHeap()
 	{
 	}
 
@@ -208,5 +204,5 @@ namespace engine {
 
 		return true;
 	}
-	*/
 }
+*/

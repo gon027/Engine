@@ -55,16 +55,6 @@ namespace engine {
 			return hwnd;
 		} 
 
-		/*
-		inline const HINSTANCE getHInstance() const {
-			return hInstance;
-		}
-
-		inline const HWND getHWnd() const {
-			return hwnd;
-		}
-		*/
-
 	protected:
 		bool registerWindow();
 

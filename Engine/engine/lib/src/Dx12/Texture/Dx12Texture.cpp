@@ -8,11 +8,42 @@
 
 #ifdef _DEBUG
 #pragma comment(lib, "engine/Lib/src/Dx12/Lib/DirectXTex/x64/Debug/DirectXTex.lib")
-#elif
-#pragma comment(lib, "engine/Lib/Dx12/Lib/DirectXTex/x64/Release/DirectXTex.lib")
+#else
+#pragma comment(lib, "engine/Lib/src/Dx12/Lib/DirectXTex/x64/Release/DirectXTex.lib")
 #endif
 
 namespace engine {
+
+	namespace {
+		// 文字列のユーティティクラスでも作る
+		
+		template <class String>
+		String getExtension(const String& _path) {
+			auto findIdx = _path.rfind(L'.');
+			auto extension = _path.substr(findIdx + 1, _path.size() - 1);
+
+			return extension;
+		}
+	}
+
+	namespace {
+		using LoadImageExtension =
+			std::function<HRESULT(const std::wstring& _path, DirectX::TexMetadata&, DirectX::ScratchImage&)>;
+
+		auto loadImageFile = 
+			[](const std::wstring& _path, DirectX::TexMetadata& _meta, DirectX::ScratchImage& _image)
+		{
+			return  DirectX::LoadFromWICFile(
+				_path.c_str(), DirectX::WIC_FLAGS::WIC_FLAGS_NONE, &_meta, _image
+			);
+		};
+
+		auto loadTGAFilde = 
+			[](const std::wstring& _path, DirectX::TexMetadata& _meta, DirectX::ScratchImage& _image)
+		{
+			return DirectX::LoadFromTGAFile(_path.c_str(), &_meta, _image);
+		};
+	}
 
 	Dx12Texture::Dx12Texture()
 		: width(0)
@@ -33,15 +64,19 @@ namespace engine {
 		assert(_device != nullptr);
 		auto* Dx12device = static_cast<Dx12Device*>(_device.get());
 
+		// 拡張子によって判定を分けたい
+		auto ext = getExtension(_path);
+
+		std::unordered_map<std::wstring, LoadImageExtension> loadImageExtensionTable{};
+		loadImageExtensionTable[L"png"] = loadImageFile;
+		loadImageExtensionTable[L"bmp"] = loadImageFile;
+		loadImageExtensionTable[L"jpg"] = loadImageFile;
+		loadImageExtensionTable[L"tga"] = loadTGAFilde;
+
 		DirectX::TexMetadata metaData{};
 		DirectX::ScratchImage image{};
 		{
-			using namespace DirectX;
-
-			HRESULT hr{};
-			hr = LoadFromWICFile(
-				_path.c_str(), WIC_FLAGS::WIC_FLAGS_NONE, &metaData, image
-			);
+			auto hr = loadImageExtensionTable[ext](_path, metaData, image);
 			if (FAILED(hr)) {
 				return false;
 			}

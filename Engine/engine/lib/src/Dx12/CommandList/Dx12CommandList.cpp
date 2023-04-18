@@ -197,7 +197,7 @@ namespace engine {
 		view.Format = DXGI_FORMAT_R32_UINT;
 
 		commandList->IASetIndexBuffer(&view);
-		commandList->DrawIndexedInstanced((UINT)_buffer.getBufferSize(), 1, 0, 0, 0);
+		// commandList->DrawIndexedInstanced((UINT)_buffer.getBufferSize(), 1, 0, 0, 0);
 	}
 
 	void Dx12CommandList::setTexture(core::ITexture* _texture, u64 _slot)
@@ -230,6 +230,11 @@ namespace engine {
 	void Dx12CommandList::setGraphicsRootDescriptorTable(u64 _parameterIndex, D3D12_GPU_DESCRIPTOR_HANDLE _handle)
 	{
 		commandList->SetGraphicsRootDescriptorTable((UINT)_parameterIndex, _handle);
+	}
+
+	void Dx12CommandList::drawIndexedInstanced(u64 a, u64 b, u64 c, u64 d, u64 e)
+	{
+		commandList->DrawIndexedInstanced((UINT)a, (UINT)b, (UINT)c, (UINT)d, (UINT)e);
 	}
 
 	std::shared_ptr<core::ICommandList> createCommandList() {

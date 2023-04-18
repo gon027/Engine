@@ -95,6 +95,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -129,6 +130,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -155,6 +157,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="engine\include\Model\ModelPipeline.cpp" />
+    <ClCompile Include="engine\lib\imgui\imgui.cpp" />
+    <ClCompile Include="engine\lib\imgui\imgui_demo.cpp" />
+    <ClCompile Include="engine\lib\imgui\imgui_draw.cpp" />
+    <ClCompile Include="engine\lib\imgui\imgui_impl_dx12.cpp" />
+    <ClCompile Include="engine\lib\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="engine\lib\imgui\imgui_tables.cpp" />
+    <ClCompile Include="engine\lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="engine\lib\src\Dx12\Shader\Dx12Shader.cpp" />
     <ClCompile Include="engine\lib\src\Dx12\Shader\Dx12ShaderManager.cpp" />
     <ClCompile Include="engine\lib\src\Windows\WindowsMain.cpp" />
@@ -199,7 +209,6 @@
     <ClCompile Include="engine\lib\src\Dx12\Device\Device.cpp" />
     <ClCompile Include="engine\src\Sprite\Sprite.cpp" />
     <ClCompile Include="engine\src\Texture\Texture.cpp" />
-    <ClCompile Include="Sample\Shooting\main.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Core_CommandList.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Core_CommandQueue.cpp" />
     <ClCompile Include="Test\Test_Core\Test_CoreMain.cpp" />
@@ -216,6 +225,9 @@
     <ClCompile Include="Test\Test_Core\Test_Shader_Resource.cpp" />
     <ClCompile Include="engine\lib\src\Windows\Window.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Core_Window.cpp" />
+    <ClCompile Include="Test\Test_Module\Test_ConstantBuffer.cpp" />
+    <ClCompile Include="Test\Test_Module\Test_Model.cpp" />
+    <ClCompile Include="Test\Test_Other\Test_ComPtr.cpp" />
     <ClCompile Include="Test\Test_Run\Test_Imgui.cpp" />
     <ClCompile Include="Test\Test_Module\Test_Circle.cpp" />
     <ClCompile Include="Test\Test_Module\Test_Rect.cpp" />
@@ -239,10 +251,19 @@
     <ClInclude Include="engine\include\IndexData\IndexData.hpp" />
     <ClInclude Include="engine\include\Mesh\Mesh.hpp" />
     <ClInclude Include="engine\include\Model\Model.hpp" />
+    <ClInclude Include="engine\include\Model\ModelPipeline.h" />
     <ClInclude Include="engine\include\Time\Time.hpp" />
     <ClInclude Include="engine\include\Vertex\Vec.hpp" />
     <ClInclude Include="engine\include\Vertex\Vertex2D.hpp" />
     <ClInclude Include="engine\include\Vertex\Vertex3D.hpp" />
+    <ClInclude Include="engine\lib\imgui\imconfig.h" />
+    <ClInclude Include="engine\lib\imgui\imgui.h" />
+    <ClInclude Include="engine\lib\imgui\imgui_impl_dx12.h" />
+    <ClInclude Include="engine\lib\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="engine\lib\imgui\imgui_internal.h" />
+    <ClInclude Include="engine\lib\imgui\imstb_rectpack.h" />
+    <ClInclude Include="engine\lib\imgui\imstb_textedit.h" />
+    <ClInclude Include="engine\lib\imgui\imstb_truetype.h" />
     <ClInclude Include="engine\lib\include\ITexture.hpp" />
     <ClInclude Include="engine\lib\ModelLoader\FBX\FBXDataStruct.hpp" />
     <ClInclude Include="engine\lib\ModelLoader\ModelData.hpp" />
@@ -342,6 +363,16 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
+    <FxCompile Include="Test\shader\TestPixel3D.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
     <FxCompile Include="Test\shader\TestTexture.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
@@ -366,6 +397,16 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Test\shader\TestVertex3D.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
   </ItemGroup>

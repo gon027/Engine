@@ -53,6 +53,8 @@ namespace model::pmx {
 		}
 
 		std::wstring convertWString(const std::string& _str) {
+			setlocale(LC_ALL, "Japanese");
+			
 			size_t len = _str.size();  // •¶Žš—ñ‚Ì’·‚³
 			size_t convLen;            // •ÏŠ·Œã•¶Žš—ñ
 
