@@ -224,7 +224,7 @@
     <ClCompile Include="Test\Test_Core\Test_Resource.cpp" />
     <ClCompile Include="Test\Test_Core\Test_Shader_Resource.cpp" />
     <ClCompile Include="engine\lib\src\Windows\Window.cpp" />
-    <ClCompile Include="Test\Test_Core\Test_Core_Window.cpp" />
+    <ClCompile Include="Test\Test_Window\Test_Core_Window.cpp" />
     <ClCompile Include="Test\Test_Module\Test_ConstantBuffer.cpp" />
     <ClCompile Include="Test\Test_Module\Test_Model.cpp" />
     <ClCompile Include="Test\Test_Other\Test_ComPtr.cpp" />
@@ -232,6 +232,7 @@
     <ClCompile Include="Test\Test_Module\Test_Circle.cpp" />
     <ClCompile Include="Test\Test_Module\Test_Rect.cpp" />
     <ClCompile Include="Test\Test_Module\Test_Texture.cpp" />
+    <ClCompile Include="Test\Test_Window\Test_Row_Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\include\2D\Circle.hpp" />
@@ -329,7 +330,6 @@
     <ClInclude Include="engine\lib\src\Windows\Window.hpp" />
     <ClInclude Include="engine\lib\src\Dx12\Shader\ShaderHelper.hpp" />
     <ClInclude Include="engine\lib\Math\MathLib.hpp" />
-    <ClInclude Include="engine\lib\src\Windows\WinProc.hpp" />
     <ClInclude Include="engine\include\EngineMain\EngineMain.hpp" />
   </ItemGroup>
   <ItemGroup>

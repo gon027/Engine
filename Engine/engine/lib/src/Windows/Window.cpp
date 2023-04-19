@@ -1,5 +1,4 @@
 #include "Window.hpp"
-#include "WinProc.hpp"
 #include <memory>
 
 #include "../../imgui/imgui.h"
@@ -16,9 +15,9 @@ namespace engine {
 			int height;
 		};
 
-		// パソコンのスクリーンのサイズを取得
-		ScreenSize getScreenSize() {
-			RECT rc;
+		// デスクトップのサイズを取得
+		ScreenSize getDesctopWindowSize() {
+			RECT rc{};
 			SystemParametersInfo(SPI_GETWORKAREA, 0, &rc, 0);
 			return {
 				rc.right - rc.left,
@@ -26,10 +25,18 @@ namespace engine {
 			};
 		}
 
-		WindowSize getWindowSize(int _width, int _height) {
+		WindowSize calcWindowSize(int _width, int _height) {
 			RECT rect{ 0, 0, (LONG)_width, (LONG)_height };
-			// AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
+			return {
+				rect.right - rect.left,
+				rect.bottom - rect.top
+			};
+		}
+
+		WindowSize getWindowSize(HWND _hWnd) {
+			RECT rect{};
+			::GetWindowRect(_hWnd, &rect);
 			return {
 				rect.right - rect.left,
 				rect.bottom - rect.top
@@ -39,7 +46,8 @@ namespace engine {
 	}
 
 	LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
-		auto windowSize = getScreenSize();
+		
+		auto windowSize = getWindowSize(hwnd);
 
 		std::string str{
 			"[width = " + std::to_string(windowSize.width) +
@@ -48,30 +56,33 @@ namespace engine {
 
 		switch (msg)
 		{
+		case WM_CREATE:
+			break;
+
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return 0;
 
 		case WM_SIZE: // ウインドウのサイズ変更されたときに呼ばれる
-			// OutputDebugString("aaaa\n");
-
-			windowSize.width = LOWORD(lp);
-			windowSize.height = HIWORD(lp);
+			windowSize = getWindowSize(hwnd);
 
 			str = {
-			"[width = " + std::to_string(windowSize.width) +
-			", height = " + std::to_string(windowSize.height) + "]\n"
+				"[width = " + std::to_string(windowSize.width) +
+				", height = " + std::to_string(windowSize.height) + "]\n"
 			};
 
 			OutputDebugString(str.c_str());
 
 			break;
 
+		case WM_MOVE:
+			break;
+
 		default:
 			break;
 		}
 
-		ImGui_ImplWin32_WndProcHandler(hwnd, msg, wp, lp);
+		// ImGui_ImplWin32_WndProcHandler(hwnd, msg, wp, lp);
 
 		return DefWindowProc(hwnd, msg, wp, lp);
 	}
@@ -94,11 +105,8 @@ namespace engine {
 
 	bool Window::init(const string& _title, int _width, int _height)
 	{
-		{
-			title = _title;
-
-			windowSize = getWindowSize(_width, _height);
-		}
+		title = _title;
+		windowSize = calcWindowSize(_width, _height);
 
 		registerWindow();		
 
@@ -132,12 +140,12 @@ namespace engine {
 		SetWindowTextA(hwnd, _title.c_str());
 	}
 
-	void Window::resizeWindow(int _x, int _y)
+	void Window::resizeWindow(int _width, int _height)
 	{
-		windowSize = getWindowSize(_x, _y);
+		windowSize = calcWindowSize(_width, _height);
 		SetWindowPos(hwnd, 0, 0, 0, windowSize.width, windowSize.height, SWP_NOMOVE);
 
-		auto screenSize = getScreenSize();
+		auto screenSize = getDesctopWindowSize();
 		windowPosition.x = (screenSize.width - windowSize.width) / 2;
 		windowPosition.y = (screenSize.height - windowSize.height) / 2;
 		setWindowPosition(windowPosition.x, windowPosition.y);
@@ -190,7 +198,7 @@ namespace engine {
 		);
 
 		{
-			auto screenSize = getScreenSize();
+			auto screenSize = getDesctopWindowSize();
 			windowPosition.x = (screenSize.width - windowSize.width) / 2;
 			windowPosition.y = (screenSize.height - windowSize.height) / 2;
 			setWindowPosition(windowPosition.x, windowPosition.y);

@@ -21,7 +21,7 @@ namespace engine {
 
 			virtual void setTitle(const_string& _title) = 0;
 
-			virtual void resizeWindow(int _x, int _y) = 0;
+			virtual void resizeWindow(int _width, int _height) = 0;
 
 			virtual void setWindowPosition(int _x, int _y) = 0;
 

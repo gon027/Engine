@@ -29,7 +29,7 @@ namespace engine {
 
 		void setTitle(const string& _title) override;
 
-		void resizeWindow(int _x, int _y) override;
+		void resizeWindow(int _width, int _height) override;
 
 		void setWindowPosition(int _x, int _y) override;
 		
